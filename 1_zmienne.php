@@ -38,6 +38,10 @@
         HYPER;
         echo nl2br($hirdok);
 
+        $nałdok = <<< 'HAJPER'
+        nałdok jewst chyba keoszyt
+        HAJPER;
+
     ?>
 </body>
 </html>
