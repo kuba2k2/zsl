@@ -1,0 +1,11 @@
+print "type the length of side A: "
+a = read_number()
+print "type the length of side B: "
+b = read_number()
+area = a*b / 2
+
+c = square_root(a*a + b*b)
+perimeter = a+b+c
+
+print "the area is: " + area
+print "the perimeter is: " + perimeter
