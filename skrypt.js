@@ -1,0 +1,1 @@
+alert('Komunikat z pliku');
