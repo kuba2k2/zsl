@@ -1,0 +1,28 @@
+<html>
+<body>
+<canvas id="c1">
+
+</canvas>
+<style>
+#c1 {
+display: block;
+margin: 50px;
+width: 600px;
+height: 600px;
+background-color: grey;
+border: 1px solid silver;
+box-sizing: border-box;
+}
+</style>
+<script>
+function rysuj() {
+	let canvas = document.getElementById("c1");
+	let ctx = canvas.getContext("2d");
+	ctx.fillStyle="red";
+	ctx.fillRect(50, 50, 100, 30);
+	ctx.strokeRect();
+}
+</script>
+<button onclick="rysuj()">RYSUJ</button>
+</body>
+</html>
