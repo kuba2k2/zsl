@@ -1,0 +1,2 @@
+<?php
+	$surname = 'Szczodrzyński';

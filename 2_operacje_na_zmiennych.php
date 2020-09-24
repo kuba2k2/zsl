@@ -24,5 +24,12 @@ $y = ++$x; // 6
 echo $y; // 6
 echo ++$y; // 7
 
+echo '<hr>';
 
+$test2 = 20;
+echo "<p>$test2</p>";
+$test2 = (unset)$test2;
+echo gettype($test2);
+unset($test2);
+echo gettype($test2);
 
