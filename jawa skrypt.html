@@ -10,11 +10,59 @@
 	</head>
 	<body>
 		<script>
-			x = prompt('podaj x');
-			y = prompt('podaj y');
+			var d = parseInt(prompt('Podaj liczbę 1-7'));
+			var n = '';
+			if (d == 1)
+				n = 'poniedziałek';
+			else if (d == 2)
+				n = 'wtorek';
+			else if (d == 3)
+				n = 'środa';
+			else if (d == 4)
+				n = 'czwartek';
+			else if (d == 5)
+				n = 'piątek';
+			else if (d == 6)
+				n = 'sobota';
+			else if (d == 7)
+				n = 'niedziela';
+			else
+				n = 'Nieprawidłowa liczba!';
+
+			switch (d) {
+				case 1:
+					n = 'poniedziałek';
+					break;
+				case 2:
+					n = 'wtorek';
+					break;
+				case 3:
+					n = 'środa';
+					break;
+				case 4:
+					n = 'czwartek';
+					break;
+				case 5:
+					n = 'piątek';
+					break;
+				case 6:
+					n = 'sobota';
+					break;
+				case 7:
+					n = 'niedziela';
+					break;
+				default:
+					n = 'Nieprawidłowa liczba!';
+			}
+			document.write(n);
+		</script>
+		<script>
+			x = parseInt(prompt('podaj x'));
+			y = parseInt(prompt('podaj y'));
 			alert(`Różnica liczb ${x} i ${y} wynosi `+(x-y));
 			document.write(`Iloczyn liczb ${x} i ${y} wynosi ${x*y}`);
 			alert(`Suma to ${x+y}`);
+			alert(`Iloraz to ${x/y}`);
 //			document.write('Witaj '+prompt('Podaj imię'));i
 //			alert('Komunikat przed nazwiskiem');
 //jd tak
