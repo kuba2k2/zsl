@@ -10,6 +10,24 @@
 	</head>
 	<body>
 		<script>
+
+			var i = parseInt(prompt("Podaj liczbe"));
+
+			var x1 = i < 0 ? i : 0;
+			var x2 = i < 0 ? 0 : i;
+			
+			for (var c = x1; c <= x2; c++) {
+				document.write(c + (c == x2 ? '<br>' : ', '));
+			}
+			c = x1 - 1;
+			while (c++ != x2) {
+				document.write(c + (c == x2 ? '<br>' : ', '));
+			}
+			c = x1;
+			do {
+				document.write(c + (c == x2 ? '<br>' : ', '));
+			} while (c++ != x2);
+
 			var d = parseInt(prompt('Podaj liczbę 1-7'));
 			var n = '';
 			if (d == 1)
