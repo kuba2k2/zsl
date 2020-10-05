@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Zadanie 1</title>
+	</head>
+	<body>
+		<script>
+			let suma = 0;
+			for (var c = 0; c < 10; c++) {
+				if (!isNaN(liczba = parseInt(prompt(`Podaj liczbę ${c+1}`)))) {
+					suma += liczba;
+				}
+				else {
+					alert("To nie liczba!");
+					c--;
+				}
+			}
+			document.write(`Suma liczb to ${suma}`);
+		</script>
+	</body>
+</html>

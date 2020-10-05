@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Zadanie 2</title>
+	</head>
+	<body>
+		<script>
+			let suma = 0;
+			let c = 0;
+			do {
+				if (!isNaN(liczba = parseInt(prompt(`Podaj liczbę ${++c}`)))) {
+					suma += liczba;
+				}
+				else {
+					alert("To nie liczba!");
+					c--;
+				}
+			} while (suma <= 100);
+			document.write(`Suma liczb to ${suma}`);
+		</script>
+	</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Zadanie 4</title>
+	</head>
+	<body>
+		<script>	
+			while (isNaN(liczba = parseFloat(prompt("Podaj liczbę")))) {
+				alert("To nie liczba!");
+			}
+
+			let x = liczba;
+			for (var c = 0; c < 5; c++) {
+				document.write(`${x}<br>`);
+				x*=x;
+			}
+		</script>
+	</body>
+</html>
