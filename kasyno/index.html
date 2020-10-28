@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+	<div style="text-align: center; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+		<canvas id="anim" width="270" height="90" onclick="toggleAnimation()"></canvas>
+		<br>
+		<span>Click to stop/start the animation.</span>
+	</div>
+
+	<script>
+		const images = [],
+			canvas = document.getElementById('anim'),
+			ctx = canvas.getContext('2d'),
+			width = canvas.width,
+			height = canvas.height,
+			imgIndexes = [];
+		
+		for (let i = 0; i < 12; i++) {
+			images[i] = new Image();
+			images[i].src = `slot${i+1}.png`;
+		}
+
+		for (let i = 0; i < 3; i++) {
+			imgIndexes[i] = Math.floor(Math.random() * 100 % 12);
+		}
+
+		let animation = 0;
+
+		function startAnimation() {
+			animation = setInterval(drawScene, 100);
+		}
+
+		function stopAnimation() {
+			clearInterval(animation);
+			animation = 0;
+		}
+
+		function toggleAnimation() {
+			if (animation)
+				stopAnimation();
+			else
+				startAnimation();
+		}
+
+		function drawScene() {
+			ctx.clearRect(0, 0, width, height);
+
+			for (let i = 0; i < 3; i++) {
+				imgIndexes[i] += 1 + Math.floor(Math.random() * 100) % 2;
+				imgIndexes[i] %= 12;
+				const img = images[imgIndexes[i]];
+				ctx.drawImage(img, 0, 0, img.width, img.height, i/3 * width, 0, 1/3 * width, height);
+			}
+		}
+
+		window.addEventListener('load', (e) => {
+			startAnimation();
+		});
+	</script>    
+</body>
+</html>
+
