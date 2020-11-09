@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+</head>
+<body>
+	<script>
+		const x = parseInt(prompt("Podaj promień koła"));
+		if (isNaN(x)) {
+			alert("Nieprawidłowa liczba");
+		}
+		alert(`Obwód koła to ${2*Math.PI*x}`);
+		alert(`Pole koła to ${Math.PI*Math.pow(x, 2)}`);
+	</script>
+</body>
+</html>
