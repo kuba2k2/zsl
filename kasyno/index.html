@@ -4,10 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+	<style>
+		body {
+			background: #000;
+			color: #fff;
+		}
+	</style>
 </head>
 <body>
 	<div style="text-align: center; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
-		<canvas id="anim" width="270" height="90" onclick="toggleAnimation()"></canvas>
+		<canvas id="anim" width="626" height="442" onclick="toggleAnimation()"></canvas>
 		<br>
 		<span>Click to stop/start the animation.</span>
 	</div>
@@ -18,7 +24,21 @@
 			ctx = canvas.getContext('2d'),
 			width = canvas.width,
 			height = canvas.height,
-			imgIndexes = [];
+			imgIndexes = [],
+			machine = new Image(),
+			handle = new Image(),
+			handleM = new Image();
+
+		machine.src = "machine.png";
+		handle.src = "handle.png";
+		handleM.src = "handleM.png";
+
+		const slotX = 189,
+			slotY = 193,
+			slotW = 235,
+			slotH = 78,
+			handleX = 456,
+			handleY = 262;
 		
 		for (let i = 0; i < 12; i++) {
 			images[i] = new Image();
@@ -29,37 +49,78 @@
 			imgIndexes[i] = Math.floor(Math.random() * 100 % 12);
 		}
 
-		let animation = 0;
+		let state = 'playing',
+			tick = 0,
+			handlePos = 0;
 
-		function startAnimation() {
-			animation = setInterval(drawScene, 100);
+		function setState(str) {
+			state = str;
+			tick = 0;
 		}
 
-		function stopAnimation() {
-			clearInterval(animation);
-			animation = 0;
+		function drawHandle() {
+			let handleH = handle.height * (100 - handlePos) / 100;
+			ctx.clearRect(handleX, handleY - handle.height, handle.width, handle.height * 1.3);
+			ctx.drawImage(
+				(handleH > 0 ? handle : handleM),
+				0,
+				0,
+				handle.width,
+				handle.height,
+				handleX,
+				handleY - Math.abs(handleH) * (handleH < 0 ? 0 : 1),
+				handle.width,
+				Math.abs(handleH)
+			);
 		}
 
-		function toggleAnimation() {
-			if (animation)
-				stopAnimation();
-			else
-				startAnimation();
-		}
+		function doTick() {
+			switch (state) {
+				case 'playing':
+					if (tick % 5 != 0)
+						break;
+					ctx.clearRect(slotX, slotY, slotW, slotH);
+					ctx.drawImage(machine, 0, 0, machine.width, machine.height, 0, 0, machine.width, machine.height);
+					drawHandle();
 
-		function drawScene() {
-			ctx.clearRect(0, 0, width, height);
+					for (let i = 0; i < 3; i++) {
+						imgIndexes[i] += 1 + Math.floor(Math.random() * 100) % 2;
+						imgIndexes[i] %= 12;
+						const img = images[imgIndexes[i]];
+						ctx.drawImage(img, 0, 0, img.width, img.height, slotX + i/3 * slotW, slotY, slotW/3, slotH);
+					}
+					break;
 
-			for (let i = 0; i < 3; i++) {
-				imgIndexes[i] += 1 + Math.floor(Math.random() * 100) % 2;
-				imgIndexes[i] %= 12;
-				const img = images[imgIndexes[i]];
-				ctx.drawImage(img, 0, 0, img.width, img.height, i/3 * width, 0, 1/3 * width, height);
+				case 'starting':
+					handlePos += 10;
+					drawHandle();
+					if (handlePos >= 130) {
+						setState('playing');
+					}
+					break;
+
+				case 'stopping':
+					handlePos = Math.max(0, handlePos - 30);
+					drawHandle();
+					if (handlePos <= 0) {
+						setState('idle');
+					}
+					break;
 			}
+			tick++;
 		}
 
 		window.addEventListener('load', (e) => {
-			startAnimation();
+			doTick();
+			setState('idle');
+			setInterval(doTick, 20); // 50 TPS
+		});
+
+		canvas.addEventListener('mousedown', (e) => {
+			setState('starting');
+		});
+		canvas.addEventListener('mouseup', (e) => {
+			setState('stopping');
 		});
 	</script>    
 </body>
