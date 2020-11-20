@@ -16,6 +16,7 @@
 		<canvas id="anim" width="626" height="442" onclick="toggleAnimation()"></canvas>
 		<br>
 		<span>Click to stop/start the animation.</span>
+		<h4>Money: <b id="money">0</b></h4>
 	</div>
 
 	<script>
@@ -32,6 +33,9 @@
 		machine.src = "machine.png";
 		handle.src = "handle.png";
 		handleM.src = "handleM.png";
+
+		let money = 100,
+			moneyBoost = 0;
 
 		const slotX = 189,
 			slotY = 193,
@@ -74,7 +78,10 @@
 			);
 		}
 
+		const moneyTxt = document.getElementById('money');
+
 		function doTick() {
+			moneyTxt.innerHTML = money;
 			switch (state) {
 				case 'playing':
 					if (tick % 5 != 0)
@@ -92,18 +99,36 @@
 					break;
 
 				case 'starting':
+					if (money < 5) {
+						alert("Masz za mało monet!");
+						setState('idle');
+						return;
+					}
 					handlePos += 10;
 					drawHandle();
 					if (handlePos >= 130) {
 						setState('playing');
+						money -= 5;
 					}
 					break;
 
 				case 'stopping':
 					handlePos = Math.max(0, handlePos - 30);
 					drawHandle();
+					if (imgIndexes[0] === imgIndexes[1] && imgIndexes[1] === imgIndexes[2]) {
+						moneyBoost = 100;
+					}
+					else if (imgIndexes[0] === imgIndexes[1] || imgIndexes[1] === imgIndexes[2] || imgIndexes[0] === imgIndexes[2]) {
+						moneyBoost = 50;
+					}
+
 					if (handlePos <= 0) {
 						setState('idle');
+						if (moneyBoost > 0) {
+							money += moneyBoost;
+							alert(`Wygrałeś ${moneyBoost} monet.`);
+							moneyBoost = 0;
+						}
 					}
 					break;
 			}
