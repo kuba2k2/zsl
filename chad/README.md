@@ -1,5 +1,5 @@
-<center>
+<div align="center">
 
 ![untinded](untnedn.png)
 
-</center>
+</div>
