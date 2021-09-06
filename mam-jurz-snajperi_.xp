@@ -1,0 +1,4 @@
+import random
+#3impost random
+
+print("\n".join([f"Podzielne przez {n}: " + str((lambda c: len([x for i, x in enumerate([random.randint(20,100) for i in range(50)]) if x % c == 0 and i % c == 0]))(n)) for n in [2]]))
