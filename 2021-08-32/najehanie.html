@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>co</title>
+</head>
+<body>
+    <p id="tekst">czcionka</p>
+    <hr>
+    <p>Podaj rozmiar: </p>
+    <input type="number" name="roz" id="roz">
+    <button id="ok">OK</button>
+    <hr>
+    <p>Podaj tekst: </p>
+    <input type="text" name="test" id="test">
+    <button id="oknie">OK</button>
+
+    <script>
+        document.getElementById('tekst').onmouseover = function() {
+            document.getElementById('tekst').style.color = "red";
+            document.getElementById('tekst').style.fontFamily = "Comic Sans MS";
+        }
+        document.getElementById('ok').onclick = function() {
+            document.getElementById('tekst').style.fontSize = document.getElementById('roz').value + "px";
+        }
+        document.getElementById('oknie').onclick = function() {
+            document.getElementById('tekst').innerHTML = "Tekst: "+document.getElementById('test').value;
+        }
+    </script>
+</body>
+</html>
