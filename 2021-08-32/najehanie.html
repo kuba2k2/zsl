@@ -14,7 +14,11 @@
     <button id="ok">OK</button>
     <hr>
     <p>Podaj tekst: </p>
-    <input type="text" name="test" id="test">
+    <input type="text" name="test" id="test"><br>
+    liczba1
+    <input type="text" name="n1" id="n1"><br>
+    liczba2
+    <input type="text" name="n2" id="n2"><br>
     <button id="oknie">OK</button>
 
     <script>
@@ -27,7 +31,20 @@
         }
         document.getElementById('oknie').onclick = function() {
             document.getElementById('tekst').innerHTML = "Tekst: "+document.getElementById('test').value;
+            let n1 = parseInt(document.getElementById('n1').value);
+            let n2 = parseInt(document.getElementById('n2').value);
+            let s = "";
+            let i = 0;
+
+            for (i = n1; i != n2; i+=(n2>n1?1:-1)) {
+                s += i + " ";
+            }
+            s += i + " ";
+            document.getElementById('tekst').innerHTML = s;
         }
+
+
     </script>
+
 </body>
 </html>
