@@ -23,7 +23,7 @@
 
     <script>
         document.getElementById('tekst').onmouseover = function() {
-            document.getElementById('tekst').style.color = "red";
+            document.getElementById('tekst').style.color = "green";
             document.getElementById('tekst').style.fontFamily = "Comic Sans MS";
         }
         document.getElementById('ok').onclick = function() {
@@ -33,13 +33,42 @@
             document.getElementById('tekst').innerHTML = "Tekst: "+document.getElementById('test').value;
             let n1 = parseInt(document.getElementById('n1').value);
             let n2 = parseInt(document.getElementById('n2').value);
+            if (!n1 || !n2)
+                return;
+            if (n1 == n2)
+                return;
             let s = "";
             let i = 0;
 
             for (i = n1; i != n2; i+=(n2>n1?1:-1)) {
-                s += i + " ";
+                x = i;
+                if (i % 2 == 0)
+                    x = `<font color=red>${x}</font>`;
+                if (i % 3 == 0)
+                    x = `<b>${x}</b>`;
+                s += x + " ";
             }
-            s += i + " ";
+
+            x = i;
+            if (i % 2 == 0)
+                x = `<font color=red>${x}</font>`;
+            if (i % 3 == 0)
+                x = `<b>${x}</b>`;
+            s += x + " ";
+
+            s += "<br>";
+            if (n1 > n2)
+             s += "Ciąg jest malejący";
+            else
+             s += "Ciąg jest rosnący";
+
+            s += `<br>Dzisiaj jest ${new Date().toLocaleDateString().replaceAll("/", ".")}`;
+            s += `<br>Teraz jest <span id='czas'>${new Date().toLocaleTimeString()}</span>`;
+            clearInterval(window.in);
+            window.in = setInterval(function() {
+                let czas = document.getElementById('czas');
+                czas.innerHTML = new Date().toLocaleTimeString();
+            }, 500);
             document.getElementById('tekst').innerHTML = s;
         }
 
