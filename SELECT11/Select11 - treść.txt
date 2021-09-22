@@ -1,0 +1,33 @@
+1. Utworzyæ bazê KREDYTY_BD
+
+2. Utworzyæ tabele bazy korzystaj¹c z pliku Definicje_tabel.sql lub diagramu ER
+
+3. Wczytaæ dane do tabel korzystaj¹c z pliku Dane_do_tabel.sql
+
+4. Sprawdziæ czy wszystkie dane zosta³y wczytane poprawnie poprzez SELECT
+
+5. Wykonaæ zapytania:
+1) Wypisaæ tych klientów, którzy s¹ w wieku 40 - 60 lat sortuj¹c wynik wg. p³ci
+
+2) Wypisaæ ³¹czn¹ sumê udzielonych po¿yczek dla ka¿dej z firm i sortuj¹c rezultat malej¹co
+
+3) Podaæ liczbê mê¿czyzn i kobiet, którzy wziêli po¿yczê w firmie 'Provident'
+
+4) Podaæ sumê po¿yczek udzielonych przez firmy z ka¿dego z segmentów M = ma³e, D = du¿e firmy
+
+5) Wypisaæ dane osoby, która wziê³a najwiêksz¹ po¿yczê - wskazówka (wykorzystaæ sortowanie oraz LIMIT)
+
+6) Wypisaæ liczbê osób, które wziê³y po¿yczê dla ka¿dej z firm, ale uwzglêdniaj¹c tylko firmy polskie w zestawieniu
+
+7) Wypisz te firmy, w których œredni okres sp³aty po¿yczki wynosi wiêcej ni¿ 6 miesiêcy
+
+8) Wypisz tych klientów, których okres sp³aty po¿yczki jest d³u¿szy, ni¿ œredni okres sp³aty obliczony dla wszystkich  klientów bazy
+
+9) Podaæ liczbê po¿yczek udzielonych ³¹cznie przez firmy krajowe i zagraniczne oraz œredni okres sp³aty tych po¿yczek
+
+10)Dla ka¿dego z klientów wypisaæ nazwisko, imiê, sumê po¿yczek które wzi¹³ oraz œredni okres sp³aty, sortuj¹c rezultat malej¹co wg. sumy pobranych po¿yczek
+
+11) Wypisz liczbê po¿yczek w zale¿noœci od firmy nie uwzglêdniaj¹c w zestawieniu po¿yczek oprocentowanych
+    poni¿ej œredniego oprocentowania udzielonych przez tê firmê po¿yczek
+	
+12) SprawdŸ czy s¹ w bazie klienci, którzy nie maj¹ ¿adnej po¿yczki - wypisz ich dane jeœli takich znajdziesz
