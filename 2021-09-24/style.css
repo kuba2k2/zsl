@@ -1,0 +1,75 @@
+body {
+	font-family: cursive;
+	background: #f5f97f;
+}
+
+a {
+	text-decoration: none;
+	color: darkblue;
+}
+
+#container {
+	width: 60%;
+	margin: 0 auto;
+	display: flex;
+}
+
+#div1 {
+	background: gold;
+	width: 20%;
+	display: inline-block;
+	font-size: 24px;
+	padding: 5%;
+}
+
+#div2 {
+	background: coral;
+	width: 60%;
+	display: inline-block;
+	padding: 5%;
+}
+
+#div2 img.center {
+	position: relative;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 80%;
+}
+
+#div1 .linki {
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+#div2:hover {
+	background: #2196f3;
+}
+
+table {
+	font-size: 18px;
+	text-align: center;
+}
+
+table, tr, td {
+	border: dashed 2px black;
+	border-spacing: 0;
+	border-collapse: collapse;
+}
+
+td {
+	padding: 10px;
+}
+
+table tr:nth-child(1) {
+	background: hotpink;
+}
+
+p {
+	color: lime;
+	font-family: 'Courier New', Courier, monospace;
+	font-size: 20px;
+	text-decoration: underline;
+	font-weight: bold;
+	font-style: italic;
+}
