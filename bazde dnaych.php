@@ -1,5 +1,5 @@
 <?php
-$db = mysqli_connect('localhost', 'root', '', 'osoby');
+$db = mysqli_connect('localhost', 'zsl', '', 'zsl');
 
 if (isset($_POST['osoba'])) {
     var_dump($_POST['osoba']);

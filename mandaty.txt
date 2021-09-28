@@ -1,0 +1,47 @@
+-- zad 1
+select nazwa, count(*) as ilosc
+from wykroczenia
+natural join mandaty
+group by kod_wyk
+order by count(*) desc
+limit 1
+
+-- zad 2
+select pesel, sum(punkty) as suma
+from kierowcy
+natural join mandaty
+natural join wykroczenia
+where year(data_prawa_jazdy) = 2013
+group by pesel
+having suma > 20
+
+-- zad 3
+select nazwa from wykroczenia
+where nazwa LIKE "%naruszenie zakazu%"
+
+-- zad 4
+select
+	count(*) as ilosc,
+    month(data_wyk) as miesiac,
+    sum(mandat) as kwota
+from mandaty
+natural join wykroczenia
+group by miesiac
+order by ilosc asc
+limit 1
+
+-- zad 5
+select count(*) as ilosc
+from kierowcy
+left join mandaty
+on kierowcy.pesel = mandaty.pesel
+where mandaty.pesel is null
+
+select miasto
+from kierowcy
+left join mandaty
+on kierowcy.pesel = mandaty.pesel
+where mandaty.pesel is null
+group by miasto
+order by count(*) desc
+limit 1
