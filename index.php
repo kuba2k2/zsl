@@ -65,6 +65,14 @@
         mysqli_stmt_execute($stmt);
     }
 
+    if (isset($_POST['litera'])) {
+        $stmt = mysqli_prepare($db, 'update wykroczenia set nazwa = ? where nazwa like ?;');
+        $litera = $_POST['litera'].'%';
+        mysqli_stmt_bind_param($stmt, 'ss', $_POST['nazwa'], $litera);
+        mysqli_stmt_execute($stmt);
+        echo mysqli_error($db);
+    }
+
 
     $result = mysqli_query($db, 'select * from kierowcy order by data_prawa_jazdy desc limit 10');
     while ($row = mysqli_fetch_assoc($result)) {
@@ -96,6 +104,15 @@
         <label for="miasto">Miasto</label><br>
         <input type="text" name="miasto" id="miasto" required><br>
         <button>Dodaj</button>
+    </form>
+
+    <h3>Zmiana wykroczenia</h3>
+    <form action="index.php" method="post">
+        <label for="litera">Pierwsza litera</label><br>
+        <input type="text" name="litera" id="litera" minlength="1" maxlength="1" required><br>
+        <label for="nazwa">Nowy tekst</label><br>
+        <input type="text" name="nazwa" id="nazwa" required><br>
+        <button>OK</button>
     </form>
 
     <hr>
