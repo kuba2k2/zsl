@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="author" content="D.S" />
+	<title>Pong3bt</title>
+</head>
+
+<body>
+	<canvas id="playfield">Can't display canvas</canvas>
+
+	<script>
+		document.body.style.background = "steelBlue";
+
+		var canvas = document.getElementById("playfield");
+		var ctx = canvas.getContext("2d");
+
+		canvas.width = 1200;
+		canvas.height = 600;
+
+		var rocket1x = 70;
+		var rocket1y = canvas.height / 2;
+		var rocketW = 10;
+		var rocketH = 70;
+
+
+
+		var ballX = 900;
+		var ballY = 300;
+		var ballVX = -2;
+		var ballVY = 0;
+
+
+
+		var interval = null;
+
+		initGame();
+
+
+
+
+		function initGame() {
+			interval = setInterval(drawGameScene, 1);
+			document.onkeydown = updateRocket1Pos;
+
+		}
+
+		function drawGameScene() {
+			updateBallPos();
+			drawTennisCourt();
+			drawRocket1();
+			drawRocket2();
+			drawBall();
+		}
+
+		function updateBallPos() {
+			ballX += ballVX;
+			ballY += ballVY;
+
+			if (ballX < -200 && ballVX < 0) {
+				ballVX = -ballVX;
+				ballY = canvas.height / 2;// randomIntFromInterval(6, canvas.height-6);
+			}
+
+			if (ballX > canvas.width + 200 && ballVX > 0) {
+				ballVX = -ballVX;
+				ballY = canvas.height / 2;// randomIntFromInterval(6, canvas.height-6);
+			}
+			if (ballX - 4 <= rocket1x + rocketW / 2) {
+				if (ballY >= rocket1y - rocketH / 2 && ballY + 4 <= rocket1y + rocketH / 2) {
+					console.log('Kolizja');
+					if (ballVX < 0)
+						ballVX = -ballVX;
+					ballVY = (Math.random() * 10 % 4) - 2;
+				}
+			}
+			if (ballY <= 0 || ballY >= canvas.height) {
+				ballVY = -ballVY;
+			}
+			else
+				console.log('Brak Kolizja');
+		}
+
+		function drawTennisCourt() {
+			ctx.fillStyle = 'black';
+			ctx.fillRect(0, 0, canvas.width, canvas.height);
+			ctx.beginPath();
+			ctx.strokeStyle = 'white';
+			ctx.lineWidth = 6;
+			ctx.moveTo(canvas.width / 2, 0);
+			ctx.lineTo(canvas.width / 2, canvas.height);
+			ctx.stroke();
+			ctx.closePath();
+		}
+
+		function drawRocket1() {
+			ctx.beginPath();
+			ctx.strokeStyle = 'white';
+			ctx.lineWidth = rocketW;
+			ctx.moveTo(rocket1x, rocket1y - rocketH / 2);
+			ctx.lineTo(rocket1x, rocket1y + rocketH / 2);
+			ctx.stroke();
+			ctx.closePath();
+		}
+
+		function drawBall() {
+			ctx.beginPath();
+			ctx.strokeStyle = 'white';
+			ctx.lineWidth = 8;
+			ctx.moveTo(ballX, ballY - 4);
+			ctx.lineTo(ballX, ballY + 4);
+			ctx.stroke();
+			ctx.closePath();
+
+		}
+
+		function drawRocket2() {
+
+		}
+
+		function updateRocket1Pos(event) {
+			switch (event.keyCode) {
+				case 38:        //strzałka góra
+					rocket1y = rocket1y - 10;
+					break;
+
+				case 40:        //strzałka dół
+					rocket1y = rocket1y + 10;
+					break;
+
+
+				case 32: //spacja
+					break;
+
+			}
+		}
+
+		function randomIntFromInterval(min, max) { // min and max included
+			return Math.floor(Math.random() * (max - min + 1) + min);
+		}
+
+	</script>
+</body>
+
+</html>

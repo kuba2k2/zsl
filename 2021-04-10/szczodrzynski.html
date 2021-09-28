@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zadanie</title>
+</head>
+<body>
+    Rozmiar czcionki:
+    <input id="liczba" type="number"><br>
+    Tekst:
+    <input id="tekst" type="text"><br>
+    <button id="przycisk">Przycisk</button><br>
+
+    <div id="wynik"></div>
+
+    <script>
+        const l = document.getElementById('liczba'),
+            t = document.getElementById('tekst'),
+            p = document.getElementById('przycisk'),
+            w = document.getElementById('wynik');
+
+        p.onclick = function() {
+            let s = t.value;
+            let r = l.value;
+            s = s[0].toUpperCase() + s.substring(1).toLowerCase();
+            w.innerHTML = s.fontsize(`${r}px`);
+        };
+    </script>
+</body>
+</html>

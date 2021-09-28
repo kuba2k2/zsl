@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Miernik jakości hasła</title>
+    <link rel="stylesheet" href="styl.css">
+</head>
+<body>
+    <header>
+        <a href="index.html"><h1>Sprawdź swoje hasło</h1></a></header><section><aside>
+            <h2>Wybierz</h2>
+            <ol>
+                <li><a href="haslo.html">Sprawdź hasło</a></li>
+                <li><a href="zasady.html">Zasady tworzenia hasła</a></li>
+            </ol>
+        </aside>
+        <div>
+            <span>Twoje hasło:</span>
+            <input id="haslo" type="password">
+            <button id="sprawdz">Sprawdź</button>
+            <p id="wynik"></p>
+        </div>
+    </section>
+    <footer>
+        <h3>Miernik jakości hasła</h3>
+        <p>Stronę opracował: Kuba Szczodrzyński</p>
+    </footer>
+
+    <script>
+        const sprawdz = document.getElementById('sprawdz'),
+            input = document.getElementById('haslo'),
+            wynik = document.getElementById('wynik');
+        sprawdz.onclick = function() {
+            const haslo = input.value;
+            if (!haslo) {
+                wynik.innerHTML = "WPISZ HASŁO!".fontcolor("red");
+            }
+            else if (haslo.length >= 7 && haslo.match("[0-9]")) {
+                wynik.innerHTML = "DOBRE".fontcolor("green");
+            }
+            else if (haslo.length >= 4 && haslo.match("[0-9]")) {
+                wynik.innerHTML = "ŚREDNIE".fontcolor("blue");
+            }
+            else {
+                wynik.innerHTML = "SŁABE".fontcolor("yellow");
+            }
+        };
+    </script>
+</body>
+</html>

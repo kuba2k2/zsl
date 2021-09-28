@@ -1,0 +1,17 @@
+-- zad 6.1
+-- 414 studentów
+-- (5005, Cbacki, Ananiusz), (5596, Bbacki, Maryniusz)
+SELECT Indeks, ` Nazwisko`, ` Imie` FROM szkolenia JOIN studenci ON szkolenia.Osoba = studenci.Indeks WHERE ` Zaliczenie` <= '2016-06-30' GROUP BY Indeks ORDER BY Indeks ASC;
+
+-- zad 6.2
+-- 190 studentów
+-- (5004, Mbacki, Ananiusz), (5586, Wbacki, Syrycjusz)
+SELECT Indeks, ` Nazwisko`, ` Imie` FROM szkolenia JOIN studenci ON szkolenia.Osoba = studenci.Indeks WHERE ` Zaliczenie` > '2016-06-30' AND ` Zaliczenie` <= '2016-09-30' GROUP BY Indeks ORDER BY Indeks ASC;
+
+-- zad 6.3
+SELECT ` Tytul`, COUNT(*) FROM kursy JOIN szkolenia ON kursy.Id = szkolenia.` Kurs` GROUP BY Id ORDER BY Id ASC;
+
+-- zad 6.4
+-- 211 kobiet
+-- (5006, Kbacka, Tedora), (5593, Jbacka, Taleja)
+SELECT * FROM studenci LEFT JOIN szkolenia ON studenci.Indeks = szkolenia.Osoba WHERE studenci.` Imie` LIKE "%a" AND szkolenia.` Zaliczenie` IS NOT NULL GROUP BY Indeks ORDER BY Indeks ASC;

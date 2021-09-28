@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeria</title>
+    <style>
+        body {
+            background: #000;
+        }
+
+        .arrow {
+            font-size: 36px;
+            cursor: pointer;
+            user-select: none;
+            background: #242424;
+            color: #fff;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .bottom {
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+        }
+
+        img {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <td class="arrow" id="prev">&#x2190;</td>
+            <td colspan="3"><img src="img1.jpg" id="img1"></td>
+            <td colspan="3"><img src="img2.jpg" id="img2"></td>
+            <td colspan="3"><img src="img3.jpg" id="img3"></td>
+            <td class="arrow" id="next">&#x2192;</td>
+        </tr>
+        <tr>
+            <td class="bottom" colspan="11"><img src="img2.jpg" id="img4"></td>
+        </tr>
+    </table>
+
+    <script>
+        const imgs = [
+            "img1.jpg",
+            "img2.jpg",
+            "img3.jpg",
+            "img4.jpg",
+            "img5.jpg",
+            "img6.jpg",
+            "img7.jpg",
+        ];
+
+        let idx = 1;
+
+        function show() {
+            document.getElementById('img1').src = imgs[(idx-1) % imgs.length];
+            document.getElementById('img2').src = imgs[idx % imgs.length];
+            document.getElementById('img4').src = imgs[idx % imgs.length];
+            document.getElementById('img3').src = imgs[(idx+1) % imgs.length];
+        }
+
+        document.getElementById('next').onclick = function() {
+            idx++;
+            show();
+        };
+
+        document.getElementById('prev').onclick = function() {
+            idx--;
+            if (idx <= 1)
+                idx = imgs.length;
+            show();
+        };
+
+    </script>
+</body>
+</html>

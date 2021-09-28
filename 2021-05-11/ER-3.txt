@@ -1,0 +1,61 @@
+Kuba Szczodrzyński 3b3t
+
+Zadanie 1
+
+CREATE TABLE osoba (pesel CHAR(11) NOT NULL PRIMARY KEY, imie VARCHAR(30) NOT NULL, nazwisko VARCHAR(40) NOT NULL, data_urodzenia CHAR(10) NOT NULL);
+CREATE TABLE zawod (zawod_id INT NOT NULL PRIMARY KEY AUTO_INCREMENT, zawod VARCHAR(100) NOT NULL);
+CREATE TABLE telefon (telefon CHAR(9) NOT NULL PRIMARY KEY, pesel CHAR(11) NOT NULL);
+CREATE TABLE osoba_zawod (pesel CHAR(11) NOT NULL, zawod_id INT NOT NULL, PRIMARY KEY(pesel, zawod_id));
+
+ALTER TABLE telefon ADD FOREIGN KEY(pesel) REFERENCES osoba(pesel);
+ALTER TABLE osoba_zawod ADD FOREIGN KEY(zawod_id) REFERENCES zawod(zawod_id);
+ALTER TABLE osoba_zawod ADD FOREIGN KEY(pesel) REFERENCES osoba(pesel);
+
+
+Zadanie 2
+
+CREATE TABLE auto (rejestracja VARCHAR(10) NOT NULL PRIMARY KEY, marka VARCHAR(20) NOT NULL, model VARCHAR(30) NOT NULL);
+CREATE TABLE miejsce (numer INT NOT NULL PRIMARY KEY);
+CREATE TABLE auto_miejsce (rejestracja VARCHAR(10) NOT NULL, numer INT NOT NULL);
+
+ALTER TABLE auto_miejsce ADD FOREIGN KEY(rejestracja) REFERENCES auto(rejestracja);
+ALTER TABLE auto_miejsce ADD FOREIGN KEY(numer) REFERENCES miejsce(numer);
+
+ALTER TABLE auto_miejsce ADD UNIQUE KEY(rejestracja);
+ALTER TABLE auto_miejsce ADD UNIQUE KEY(numer);
+
+
+Zadanie 3
+
+CREATE TABLE sklep (sklep_id INT NOT NULL PRIMARY KEY, nazwa VARCHAR(50) NOT NULL, adres VARCHAR(100) NOT NULL, email VARCHAR(50) NOT NULL);
+CREATE TABLE opinia (
+	opinia_id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	klient VARCHAR(100) NOT NULL,
+	ocena MEDIUMTEXT NOT NULL,
+	uwagi MEDIUMTEXT NOT NULL,
+	sklep_id INT NOT NULL
+);
+
+ALTER TABLE opinia ADD FOREIGN KEY(sklep_id) REFERENCES sklep(sklep_id);
+
+
+Zadanie 4
+
+CREATE TABLE wlasciciel (pesel CHAR(11) NOT NULL PRIMARY KEY, nazwisko VARCHAR(40) NOT NULL, imie VARCHAR(30), data_urodzenia CHAR(10) NOT NULL, au_rejestracja VARCHAR(10) NOT NULL);
+CREATE TABLE auto (rejestracja VARCHAR(10) NOT NULL PRIMARY KEY, marka VARCHAR(20) NOT NULL, model VARCHAR(30) NOT NULL, rok_prod INT NOT NULL, wl_pesel CHAR(11) NOT NULL);
+
+ALTER TABLE wlasciciel ADD FOREIGN KEY(au_rejestracja) REFERENCES auto(rejestracja);
+ALTER TABLE auto ADD FOREIGN KEY(wl_pesel) REFERENCES wlasciciel(pesel);
+
+
+Zadanie 5
+
+CREATE TABLE stolik (stolik_numer INT NOT NULL PRIMARY KEY);
+CREATE TABLE klient (klient_id INT NOT NULL PRIMARY KEY, nazwisko VARCHAR(40) NOT NULL, telefon VARCHAR(10) NOT NULL);
+CREATE TABLE rezerwacja (data DATE NOT NULL, godzina TIME NOT NULL, stolik_numer INT NOT NULL, klient_id INT NOT NULL);
+
+ALTER TABLE rezerwacja ADD FOREIGN KEY(stolik_numer) REFERENCES stolik(stolik_numer);
+ALTER TABLE rezerwacja ADD FOREIGN KEY(klient_id) REFERENCES klient(klient_id);
+
+ALTER TABLE rezerwacja ADD UNIQUE KEY(data, godzina, stolik_numer);
+ALTER TABLE rezerwacja ADD UNIQUE KEY(data, godzina, klient_id);

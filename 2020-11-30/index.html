@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sumowanie</title>
+    <style>
+        body, html {
+            height: 100%;
+            overflow: hidden;
+            font-family: 'Comic Sans MS', cursive;
+        }
+        body {
+            background: #000 url('tlo.gif');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+        }
+        div {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 60%;
+            transform: translate(-50%, -50%);
+            background: rgba(255, 255, 255, 0.6);
+            padding: 30px;
+            border-radius: 30px;
+        }
+        input {
+            font-size: 16px;
+            border: 3px #4caf50 solid;
+            border-radius: 4px;
+            background: #fff;
+            padding: 4px;
+            margin: 5px 0;
+            outline: none;
+        }
+        input#wynik {
+            border-color: darkorchid;
+        }
+        input#wynik:hover {
+            border-color: blue;
+        }
+        input#wynik:focus {
+            border-color: #2196f3;
+        }
+        button {
+            color: #fff;
+            font-size: 20px;
+            font-weight: 700;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            padding: 5px;
+            background: royalblue;
+            border: 4px blue solid;
+            border-radius: 10px;
+            outline: none;
+        }
+        button:hover {
+            background: greenyellow;
+        }
+        button:active {
+            background: green;
+        }
+        span {
+            font-size: 36px;
+            font-family: 'Comic Sans MS', cursive;
+            line-height: 0%;
+        }
+    </style>
+</head>
+<body>
+    <div style="text-align: center;">
+        <h1>Sumowanie</h1>
+        <input type="number" id="liczba1" disabled> <span>+</span> <input type="number" id="liczba2" disabled> <span>=</span> <input type="number" id="wynik"><br>
+        <button type="button" id="sprawdz">Sprawdź</button>
+    </div>
+    <script>
+        const liczba1 = document.getElementById('liczba1'),
+            liczba2 = document.getElementById('liczba2'),
+            wynik = document.getElementById('wynik'),
+            sprawdz = document.getElementById('sprawdz');
+
+        let l1, l2, sprawdzone = false;
+        function losuj() {
+            l1 = parseInt(Math.random() * 10 + 1);
+            l2 = parseInt(Math.random() * 10 + 1);
+            liczba1.value = l1;
+            liczba2.value = l2;
+        }
+
+        function resetuj() {
+            if (!sprawdzone)
+                return;
+            sprawdzone = false;
+            wynik.style.backgroundColor = "#fff";
+            wynik.value = "";
+            losuj();
+        }
+
+        function sprawdzWynik() {
+            sprawdzone = true;
+            const poprawnie = parseInt(wynik.value) === l1 + l2;
+            wynik.style.backgroundColor = poprawnie ? "#80ff80" : "#ff5959";
+            wynik.blur();
+        }
+
+        sprawdz.onclick = sprawdzWynik;
+        wynik.onclick = resetuj;
+        losuj();
+    </script>
+</body>
+</html>

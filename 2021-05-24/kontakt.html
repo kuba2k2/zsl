@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pogotowie komputerowe</title>
+    <link rel="stylesheet" href="styl.css">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <section>
+        <header><img src="animacja.gif" alt="animacja.gif"></header>
+        <nav>
+            <a href="index.html">O nas</a>
+            <a href="kontakt.html">Kontakt</a>
+        </nav>
+        <div>
+            <div class="blok blok1"></div>
+            <div class="blok blok2">
+                <h3>Formularz kontaktowy</h3>
+                <table>
+                    <tr>
+                        <td>Imię: </td>
+                        <td><input type="text" name="imie" id="imie"></td>
+                    </tr>
+                    <tr>
+                        <td>Nazwisko: </td>
+                        <td><input type="text" name="nazwisko" id="nazwisko"></td>
+                    </tr>
+                    <tr>
+                        <td>E-mail: </td>
+                        <td><input type="email" name="email" id="email"></td>
+                    </tr>
+                    <tr>
+                        <td>Usługa: </td>
+                        <td>
+                            <select name="usluga" id="usluga">
+                                <option value="naprawa komputera">naprawa komputera</option>
+                                <option value="odzyskiwanie danych">odzyskiwanie danych</option>
+                                <option value="problemy z oprogramowaniem">problemy z oprogramowaniem</option>
+                                <option value="konfiguracja sieci LAN">konfiguracja sieci LAN</option>
+                                <option value="inne">inne</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <input type="checkbox" name="kopia" id="kopia" checked="checked">
+                            <label for="kopia">Wyślij kopię wiadomości</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <button class="resetuj" type="reset">Resetuj</button>
+                            <button class="przeslij" type="button" id="przeslij">Prześlij</button>
+                        </td>
+                    </tr>
+                </table>
+                <p id="wynik"></p>
+                <script>
+                    document.getElementById('przeslij').onclick = function() {
+                        const imie = document.getElementById('imie').value;
+                        const nazwisko = document.getElementById('nazwisko').value;
+                        const email = document.getElementById('email').value;
+                        const usluga = document.getElementById('usluga').value;
+                        document.getElementById('wynik').innerHTML = `${imie} ${nazwisko}<br>${email.toLowerCase()}<br>Usługa: ${usluga}`;
+                    };
+                </script>
+            </div>
+            <div class="blok blok3"></div>
+        </div>
+        <footer>
+            <span>Autor strony: <b>PESEL</b></span>
+        </footer>
+    </section>
+</body>
+</html>

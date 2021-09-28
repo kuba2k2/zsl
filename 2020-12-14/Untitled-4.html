@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="pole">
+    <button id="przycisk"></button>
+    <p id="wynik">123456</p>
+    <script>
+        let pole = document.getElementById('pole'),
+przycisk = document.getElementById('przycisk'),
+wynik = document.getElementById('wynik');
+
+przycisk.onclick = function() {
+  wynik.innerHTML = pole.value;
+  wynik.style.color = "red";
+  wynik.style.backgroundColor = "blue";
+};
+    </script>
+</body>
+</html>

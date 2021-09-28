@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zad2</title>
+</head>
+<body>
+    <label for="haslo">Podaj hasło</label>
+    <input type="text" id="haslo">
+    <button type="button" id="przycisk">OK</button>
+    <br><br>
+    <textarea id="wynik"></textarea>
+
+    <script>
+        const haslo = document.getElementById('haslo'),
+            przycisk = document.getElementById('przycisk'),
+            wynik = document.getElementById('wynik');
+        przycisk.onclick = () => {
+            let h = haslo.value;
+            wynik.value = h ? h.length >= 5 ? 'Hasło Poprawne, podałeś hasło ' + h.toUpperCase() : 'Hasło jest za krótkie' : 'Wprowadź hasło';
+        };
+    </script>
+</body>
+</html>

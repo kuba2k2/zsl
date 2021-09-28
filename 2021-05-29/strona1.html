@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Działania matematyczne</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <a href="index.html"><img src="baner.jpg" alt="baner"></a>
+    <br><br>
+    <div style="width: 250px; float: left;">
+    <span>Menu</span><br>
+    <span>- <a href="strona1.html">proste działania</a></span><br>
+    <span>- <a href="#">potęgowanie</a></span><br>
+    </div>
+    <div>
+        <h1>PROSTE DZIAŁANIA</h1>
+        <label for="l1">Podaj pierwszą liczbę:</label>
+        <input type="text" name="l1" id="l1">
+        <br>
+        <br>
+        <label for="l2">Podaj drugą liczbę:</label>
+        <input type="text" name="l2" id="l2">
+        <br>
+        <br>
+        <button id="dodawanie">DODAWANIE</button>
+        <button id="odejmowanie">ODEJMOWANIE</button>
+        <button id="mnozenie">MNOŻENIE</button>
+        <button id="dzielenie">DZIELENIE</button>
+        <p id="wynik"></p>
+    </div>
+    <script>
+        const wynik = document.getElementById('wynik');
+
+        function dzialanie(typ) {
+            let l1 = document.getElementById('l1');
+            let l2 = document.getElementById('l2');
+
+            if (l1.value == '' || l2.value == '') {
+                wynik.innerHTML = "Proszę uzupełnić obie liczby.";
+                return;
+            }
+
+            l1 = parseInt(l1.value);
+            l2 = parseInt(l2.value);
+            let r = 0;
+
+            switch (typ) {
+                case 1:
+                    r = l1 + l2;
+                    break;
+                case 2:
+                    r = l1 - l2;
+                    break;
+                case 3:
+                    r = l1 * l2;
+                    break;
+                case 4:
+                    if (l2 == 0) {
+                        wynik.innerHTML = "Nie wolno dzielić przez zero.";
+                        return;
+                    }
+                    r = l1 / l2;
+                    break;
+            }
+
+            wynik.innerHTML = `Wynik działania wynosi: ${r}`;
+        }
+
+        document.getElementById('dodawanie').onclick = function() {
+            dzialanie(1);
+        };
+        document.getElementById('odejmowanie').onclick = function() {
+            dzialanie(2);
+        };
+        document.getElementById('mnozenie').onclick = function() {
+            dzialanie(3);
+        };
+        document.getElementById('dzielenie').onclick = function() {
+            dzialanie(4);
+        };
+    </script>
+</body>
+</html>

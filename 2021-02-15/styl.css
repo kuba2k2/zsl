@@ -1,0 +1,68 @@
+header, footer, aside {
+    overflow: hidden;
+}
+
+header, footer {
+    background: #829EB9;
+    font-family: Arial;
+}
+
+p {
+    margin: 30px;
+}
+
+header {
+    text-align: center;
+    height: 50px;
+}
+
+header h1, h3 {
+    margin: 0;
+}
+
+footer {
+    text-align: right;
+}
+
+aside {
+    background: #B3C6D9;
+    min-height: 600px;
+    width: 25%;
+}
+
+section {
+    display: flex;
+}
+
+section > div {
+    width: 75%;
+    text-align: center;
+    background: #E0E9F1;
+}
+
+img {
+    margin: 30px;
+    padding: 10px;
+    border: 2px dotted #B3C6D9;
+}
+
+table {
+    margin: 30px;
+    border: 2px solid;
+    width: 70%;
+    border-spacing: 0px;
+}
+
+th {
+    background: #B3C6D9;
+    border: 2px solid;
+}
+
+td {
+    border: 2px solid;
+}
+
+tr:hover {
+    background: blue;
+    color: white;
+}

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Overflow</title>
+    <style>
+        div {
+            height: 60px;
+            background-color: #CC6600;
+            overflow: hidden;
+            padding: 10px;
+            margin: 10px;
+            transition: height 2s;
+        }
+    </style>
+</head>
+<body>
+    <div id="blok1"><h1>Blok 1 - najechanie myszką</h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus facere placeat incidunt. Neque dolorem eligendi exercitationem quas deleniti recusandae reprehenderit autem. Animi quaerat repellat dolorum distinctio? Dolore ratione tenetur sed.</div>
+    <div id="blok2"><h1>Blok 2 - kliknięcie + godzina</h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus facere placeat incidunt. Neque dolorem eligendi exercitationem quas deleniti recusandae reprehenderit autem. Animi quaerat repellat dolorum distinctio? Dolore ratione tenetur sed.<br><span id="godzina"></span></div>
+    <div id="blok3"><h1>Blok 3 - podwójne kliknięcie</h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus facere placeat incidunt. Neque dolorem eligendi exercitationem quas deleniti recusandae reprehenderit autem. Animi quaerat repellat dolorum distinctio? Dolore ratione tenetur sed.</div>
+
+    <script>
+        const blok1 = document.getElementById("blok1");
+        const blok2 = document.getElementById("blok2");
+        const blok3 = document.getElementById("blok3");
+        const godzina = document.getElementById("godzina");
+        let bool1 = false;
+        let bool2 = false;
+        let bool3 = false;
+        blok1.onmouseover = () => {
+            blok1.style.height = bool1 ? "60px" : "200px";
+            bool1 = !bool1;
+        };
+        blok2.onclick = () => {
+            blok2.style.height = bool2 ? "60px" : "200px";
+            bool2 = !bool2;
+            let d = new Date();
+            godzina.innerHTML = `${d.getHours()}:${d.getMinutes()}:${d.getSeconds()}`;
+        };
+        blok3.ondblclick = () => {
+            blok3.style.height = bool3 ? "60px" : "200px";
+            bool3 = !bool3;
+        };
+    </script>
+</body>
+</html>

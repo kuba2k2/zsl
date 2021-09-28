@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="D.S">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poąg</title>
+</head>
+<body>
+    <canvas id="playfield">Canvas is not working</canvas>
+    <script>
+        document.body.style.background="#242424";
+
+        var canvas = document.getElementById("playfield");
+        var ctx = canvas.getContext("2d");
+
+        canvas.width = 1200;
+        canvas.height = 600;
+
+        var rocket1x = 100;
+        var roceket1y = canvas.height/2;
+
+        var rocketW = 10;
+        var rocketH = 60;
+
+        initGame();
+
+        function initGame()
+        {
+            ctx.fillStyle='black';
+            ctx.fillRect(0,0,canvas.width, canvas.height);
+            ctx.beginPath();
+            ctx.strokeStyle = 'white';
+            ctx.lineWidth = 6;
+            ctx.moveTo(canvas.width/2, 0);
+            ctx.lineTo(canvas.width/2, canvas.height);
+            ctx.stroke();
+            ctx.closePath();
+        }
+
+        function drawRocket1()
+        {
+            ctx.beginPath();
+            ctx.strokeStyle = 'white';
+            ctx.lineWidth = rocketW;
+            ctx.moveTo(rocket1x, rocket1y-rocketH/2);
+            ctx.lineTo(rocket1x, rocket1y+rocketH/2);
+            ctx.stroke();
+            ctx.closePath();
+        }
+
+        function drawRocket2()
+        {
+
+        }
+    </script>
+    
+</body>
+</html>

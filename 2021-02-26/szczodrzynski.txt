@@ -1,0 +1,32 @@
+-- 6.1
+SELECT Id_oferty, Imie, Nazwisko FROM oferta 
+INNER JOIN zainteresowania ON oferta.Id_oferty = zainteresowania.oferta 
+INNER JOIN agent ON agent.Id_agenta = oferta.agent 
+GROUP BY Id_oferty 
+ORDER BY COUNT(*) DESC 
+LIMIT 1;
+
+-- 6.2
+SELECT Woj, ROUND(AVG(Cena), 1) AS Srednia FROM oferta 
+GROUP BY Woj 
+ORDER BY Woj ASC;
+
+-- 6.3
+SELECT Imie, Nazwisko, Id_oferty, Woj, Pow, Cena FROM oferta 
+INNER JOIN agent ON agent.Id_agenta = oferta.agent 
+WHERE Status = 'A' AND Id_oferty LIKE "%MT";
+
+-- 6.4
+CREATE VIEW sprzedane_2017 AS 
+SELECT Id_agenta, COUNT(*) AS Ilosc FROM oferta 
+INNER JOIN agent ON agent.Id_agenta = oferta.agent 
+WHERE YEAR(Data_zglosz) = 2017 AND Status = 'S' 
+GROUP BY Id_agenta 
+ORDER BY Id_agenta;
+
+SELECT Imie, Nazwisko FROM agent LEFT JOIN sprzedane_2017 USING(Id_agenta) WHERE Ilosc IS NULL;
+
+-- 6.5
+SELECT Id_oferty, Pow, L_pokoi, L_laz, Cena, Imie, Nazwisko FROM oferta 
+INNER JOIN agent ON agent.Id_agenta = oferta.agent 
+WHERE Pow > 180 AND L_laz >= 2 AND Status = 'A';

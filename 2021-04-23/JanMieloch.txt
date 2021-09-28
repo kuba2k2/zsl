@@ -1,0 +1,3 @@
+5. tworzące użytkownika barbara_nr gdzie nr jest numerem z dziennika pracującym na dowolnych hostach z hasłem 2wsx
+6. nadające użytkownikowi barbara_nr uprawnienia tworzenie vidoków, modyfikacji rekordów oraz tworzenia relacji z możliwościa przekazania uprawnień innemu użytkownikowi. 
+

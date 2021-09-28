@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kwadraty</title>
+    <style>
+        body {
+            font-weight: bold;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        div.d {
+            display: inline-block;
+            width: 90px;
+            height: 90px;
+            border: rgba(0, 0, 0, 0.3) 5px solid;
+            border-radius: 4px;
+            margin-left: 10px;
+            text-align: center;
+            font-size: 30px;
+        }
+
+        div.no-margin {
+            margin-left: 0px;
+        }
+    </style>
+</head>
+<body>
+    <div style="display: inline-block;">
+        <div id="d1" class="d no-margin">1</div>
+        <div id="d2" class="d">2</div>
+        <div id="d3" class="d">3</div>
+        <div id="d4" class="d">4</div>
+        <div id="d5" class="d">5</div>
+    </div>
+    <script>
+        const d = [];
+        const c = ['#4F81BD', '#C0504D', '#9BBB59', '#8064A2', '#F79646'];
+
+        for (let i = 0; i < 5; i++) {
+            const di = document.getElementById(`d${i+1}`);
+            d[i] = di;
+            di.style.backgroundColor = c[i];
+            di.onmouseover = () => {
+                if (i > 0)
+                    di.style.backgroundColor = d[i-1].style.backgroundColor;
+            };
+            di.onmouseout = () => {
+                if (i > 0)
+                    di.style.backgroundColor = c[i];
+            };
+        }
+        d[4].onclick = () => {
+            d[4].style.backgroundColor = d[0].style.backgroundColor;
+        };
+    </script>
+</body>
+</html>

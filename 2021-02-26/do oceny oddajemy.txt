@@ -1,0 +1,13 @@
+Folder Twoje_Nazwisko.zip 
+          zawierający:
+                       a) zrzuty ekranu zawierające zapytanie oraz odpowiedź ( nie kadrujemy, widoczny pasek narzędzi)
+                       b) nazwisko.txt zawierający polecenia select 
+
+
+Uwaga
+
+zadanie 6.4 zawiera słowo NIE (sprzężenie zewnatrzne) oraz kwerenda pomocnicza. 
+
+zadania 6.1,2,3,5 (sprzężenie wewnętrzne) wymaga dokładnego przeczytania. 
+
+Przyjemności. 

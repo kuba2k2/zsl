@@ -1,0 +1,50 @@
+Do bazy danych o nazwie baza zaimportuj tabele z pliku zadanie_1.sql 
+Wykonaj zrzut ekranu po imporcie. Zrzut zapisz w folderze z Twoimi inicjałami, w formacie JPEG i nazwij import.
+Nie kadruj zrzutu. Zrzut powinien obejmować cały ekran, z widocznym paskiem zadań. 
+Na zrzucie powinny być widoczne elementy wskazujące na poprawnie wykonany import tabel bez dostępu do sieci. 
+Zapisz i wykonaj zapytania SQL działające na bazie. 
+Wykonaj zrzuty ekranu przedstawiające wyniki działania kwerend w formacie JPEG i nadaj im nazwy kwerenda1, kwerenda2, kwerenda3 kwerenda4
+kwerenda5. Zrzuty powinny obejmować cały ekran monitora z widocznym paskiem zadań. Bez dostępu do sieci 
+Zapisz w folderze z inicjałami. Zapytania zapisz w pliku kwerendy.txt, w folderze z inicjałami.
+
+
+1.
+Podaj imiona i nazwiska wszystkich osób, które zakupiły notebooki firmy HW. Nazwiska
+posortuj alfabetycznie.
+
+SELECT imie, nazwisko FROM zamowienia JOIN klienci USING(ID_klienta) JOIN produkty USING(ID_produktu) WHERE Producent = "HW" ORDER BY nazwisko ASC;
+
+2.
+Podaj nazwy produktów zakupionych przez klienta Anna Kotnicka, grupy towarowe oraz
+producentów tych produktów. 
+
+SELECT Nazwa_produktu, Grupa_towarowa, Producent FROM zamowienia
+JOIN klienci USING(ID_klienta)
+JOIN produkty USING(ID_produktu)
+WHERE imie = "Anna" AND nazwisko = "Kotnicka";
+
+3.
+
+Podaj imię i nazwisko osoby, która złożyła największą liczbę zamówień w sklepie
+internetowym oraz liczbę tych zamówień.
+
+SELECT imie, nazwisko, COUNT(*) AS liczba FROM zamowienia JOIN klienci USING(ID_klienta) GROUP BY ID_klienta ORDER BY liczba DESC LIMIT 1;
+
+4.
+Podaj imiona i nazwiska trzech osób, które zapłaciły za wszystkie zamówione przez siebie
+towary najwięcej spośród wszystkich klientów.
+
+SELECT imie, nazwisko FROM zamowienia
+JOIN produkty USING(ID_produktu)
+JOIN klienci USING(ID_klienta)
+GROUP BY ID_klienta
+ORDER BY SUM(`Liczba sztuk`*Cena_brutto) DESC
+LIMIT 3;
+
+5.
+Podaj, ile notebooków zamówiono w marcu 2013 roku.
+
+SELECT COUNT(*) FROM zamowienia
+JOIN produkty USING(ID_produktu)
+WHERE MONTH(`Data`) = 3 AND YEAR(`Data`) = 2013
+AND Grupa_towarowa = "Notebooki";

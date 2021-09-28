@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zad1</title>
+</head>
+
+<body>
+    <table border="1">
+        <tr>
+            <th>Instrukcja</th>
+            <th>Wynik</th>
+            <th>Opis</th>
+        </tr>
+        <script>
+            const x = [
+                ["tekst.big()", "Zwiększa rozmiar czcionki; odpowiednik znacznika &lt;big>"],
+                ["tekst.bold()", "Tekst pogrubiony; odpowiednik znacznika &lt;b>"],
+                ["tekst.italics()", "Tekst pochylony; odpowiednik znacznika &lt;i>"],
+                ["tekst.small()", "Zmniejsza rozmiar czcionki; odpowiednik znacznika &lt;small>"],
+                ["tekst.sub()", "Indeks dolny; odpowiednik znacznika &lt;sub>"],
+                ["tekst.strike()", "Tekst przekreslony; odpowiednik znacznika &lt;strike>"],
+                ["tekst.sup()", "Indeks górny; odpowiednik znacznika &lt;sup>"],
+                ["tekst.fontcolor('red')", "Ustawia kolor czcionki (tekstu) na kolor"],
+                ["tekst.fontsize('36px')", "Ustawia rozmiar czcionki na wartość rozmiar"],
+                ["tekst.charAt(2)", "Zwraca znak pozycji określonej przez indeks (pierwsza<br>pozycja to 0)"],
+                ["tekst.charCodeAt(0)", "zwraca kod ASCII znaku występującego na określonej<br>pozycji"],
+                ["tekst.indexOf('a', 3)", "Przeszukuje łańcuch w poszukiwaniu podłańcucha i zwraca<br>pozycję pierwszego znalezionego znaku (wielkość liter jest<br>istotna, gdy tekst nie występuje zwracana jest wartość -1,<br>drugi argument opcjonalny)"],
+                ["tekst.lastIndexOf('a', 4)", "Przeszukuje łańcuch w poszukiwaniu podłańcucha w<br>kierunku przeciwnym, czyli od końca i zwraca pozycję, od<br>której zaczyna się tekst (wielkość liter jest istotna, gdy tekst<br>nie występuje zwracana jest wartość -1, drugi argument<br>opcjonalny)"],
+                ["tekst.match('psa')", "podobne do indexOf(), ale zamiast pozycji zwraca tekst (null<br>jeśli tekst nie występuje w ciągu, wielkość liter ma<br>znaczenie)"],
+                ["tekst.substring(2, 8)", "Zwraca podłańcuch wycięty z łańcucha od pozycji x do<br>pozycji y"],
+                ["tekst.substr(2, 6)", "wycina z łańcucha liczbę znaków długość począwszy od<br>pozycji x (ujemna wartość pierwszego argumentu oznacza<br>pozycję od końca, drugi argument opcjonalny – brak=<br>koniec łańcucha)"],
+                ["tekst.slice(2, 5)", "Wycina fragmentu łańcucha od pozycji x do pozycji y<br>(obydwa argumenty numeryczne, wartość ujemna oznacza<br>pozycję od końca, musi być spełniony warunek x<y, drugi<br>argument opcjonalny – brak oznacza, że y= koniec<br>łańcucha)"],
+                ["tekst.split(' ', 2)", "Dzieli tekst na części. Miejsce podziału jest podawane w<br>parametrze znak, a maksymalna ilość zwracanych<br>elementów w parametrze długość (IE pomija ten parametr):"],
+                ["tekst.toLowerCase()", "Konwertuje znaki łańcucha na małe litery"],
+                ["tekst.toUpperCase()", "Konwertuje znaki łańcucha na wielkie litery"],
+                ["tekst.link('https://google.com/')", "Tekst będzie wyświetlony jako hiperłącze do dokumentu o<br>adresie url"],
+                ["tekst.concat(' a kot ma', ' HIV')", "Dodaje do obiektu łańcuchy znakowe będące argumentami<br>metody (musi wystąpić co najmniej jeden argument)"],
+                ["tekst.replace('kota', 'psa')", "Zamiana w danym łańcuchu podłańcucha stary_tekst na<br>nowy_tekst (wielkość liter jest istotna)"],
+                ["tekst.search('m[a-z]+')", "Przeszukuje tekst pod kątem występowania w nim<br>podanego wzorca - wyrażenia regularnego. Jeżeli tekst nie<br>zostanie dopasowany, funkcja zwraca liczbę -1.<br>Pierwszy znak tekstu ma pozycję 0, a więc taka wartość<br>zwrócona przez funkcję oznacza, że poszukiwany tekst<br>został znaleziony (na samym początku).<br>Informacje na temat wyrażeń regularnych znajdziesz np.<br>pod linkiem: http://kursjs.pl/kurs/regular.php"],
+                ["tekst.length", "Zwraca długość podanego tekstu"],
+            ];
+
+            const tekst = 'Ala ma kota';
+
+            for (let y in x) {
+                y = x[y];
+                document.write(`<tr><td>${y[0]}</td><td>${eval(y[0])}</td><td>${y[1]}</td></tr>`);
+            }
+        </script>
+    </table>
+</body>
+
+</html>

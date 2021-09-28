@@ -1,0 +1,29 @@
+-- 1.
+SELECT imie, nazwisko FROM zamowienia JOIN klienci USING(ID_klienta) JOIN produkty USING(ID_produktu) WHERE Producent = "HW" ORDER BY nazwisko ASC;
+
+-- 2.
+SELECT Nazwa_produktu, Grupa_towarowa, Producent FROM zamowienia
+JOIN klienci USING(ID_klienta)
+JOIN produkty USING(ID_produktu)
+WHERE imie = "Anna" AND nazwisko = "Kotnicka";
+
+-- 3.
+SELECT imie, nazwisko, COUNT(*) AS liczba FROM zamowienia
+JOIN klienci USING(ID_klienta)
+GROUP BY ID_klienta
+ORDER BY liczba DESC
+LIMIT 1;
+
+-- 4.
+SELECT imie, nazwisko FROM zamowienia
+JOIN produkty USING(ID_produktu)
+JOIN klienci USING(ID_klienta)
+GROUP BY ID_klienta
+ORDER BY SUM(`Liczba sztuk`*Cena_brutto) DESC
+LIMIT 3;
+
+-- 5.
+SELECT COUNT(*) FROM zamowienia
+JOIN produkty USING(ID_produktu)
+WHERE MONTH(`Data`) = 3 AND YEAR(`Data`) = 2013
+AND Grupa_towarowa = "Notebooki";

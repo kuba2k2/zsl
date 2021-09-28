@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zadania</title>
+</head>
+
+<body>
+    <div id="zad1"></div>
+    <br>
+    <div id="zad2"></div>
+    <br>
+    <div><h1 id="zad3" style="color: red;"></h1></div>
+
+    <script type="text/javascript">
+        const z1 = document.getElementById('zad1'),
+            z2 = document.getElementById('zad2'),
+            z3 = document.getElementById('zad3');
+
+        let now = new Date();
+
+        z1.innerHTML = `Dzisiaj jest:<br>
+        Dzień: ${now.getDate()}<br>
+        Miesiąc: ${now.getMonth() + 1}<br>
+        Rok: ${now.getFullYear()}`;
+
+        const mies = [
+            'stycznia',
+            'lutego',
+            'marca',
+            'kwietnia',
+            'maja',
+            'czerwca',
+            'lipca',
+            'sierpnia',
+            'września',
+            'października',
+            'listopada',
+            'grudnia',
+        ];
+
+        const dni = [
+            'poniedziałek',
+            'wtorek',
+            'środa',
+            'czwartek',
+            'piątek',
+            'sobota',
+            'niedziela',
+        ];
+
+        z2.innerHTML = `${now.getDate()} ${mies[now.getMonth()]} ${now.getFullYear()} roku`;
+
+        function update() {
+            now = new Date();
+            z3.innerHTML = `${now.getDate()} ${mies[now.getMonth()]} ${now.getFullYear()}r., `;
+            z3.innerHTML += `${dni[now.getDay() - 1]} `;
+            z3.innerHTML += `${now.getHours() < 10 ? '0' : ''}${now.getHours()}:`;
+            z3.innerHTML += `${now.getMinutes() < 10 ? '0' : ''}${now.getMinutes()}:`;
+            z3.innerHTML += `${now.getSeconds() < 10 ? '0' : ''}${now.getSeconds()}`;
+        }
+        setInterval(update, 1000);
+        update();
+    </script>
+</body>
+
+</html>

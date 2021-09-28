@@ -1,0 +1,53 @@
+body {
+    background-color: #99FFCC;
+}
+
+section {
+    width: 1000px;
+    margin: auto;
+}
+
+header {
+    background-color: #99FF66;
+    height: 200px;
+}
+
+nav {
+    background-color: #66CCFF;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+div.blok {
+    width: 310px;
+    padding: 10px;
+    display: inline-grid;
+}
+
+footer {
+    background-color: #66CCFF;
+    color: #006666;
+    text-align: right;
+    height: 30px;
+    padding: 20px;
+}
+
+nav a {
+    color: #006666;
+    margin: 50px;
+    font-size: 200%;
+    text-decoration: none;
+}
+
+h2, h3 {
+    text-align: center;
+}
+
+button.resetuj {
+    background-color: #FF0000;
+}
+
+button.przeslij {
+    background-color: #00FF00;
+}

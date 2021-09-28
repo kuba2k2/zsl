@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matematyka</title>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        div {
+            display: inline-block;
+            clear: none;
+            border: 1px black solid;
+            box-sizing: border-box;
+        }
+
+        #baner {
+            width: 100%;
+        }
+
+        #menu {
+            width: 40%;
+            float: left;
+            height: 300px;
+            padding: 20px;
+        }
+
+        #tresc {
+            width: 60%;
+            float: right;
+            height: 300px;
+            padding: 20px;
+        }
+    </style>
+    <link rel="stylesheet" href="czcionka.css">
+</head>
+<body>
+    <div id="baner">
+        <img src="baner.jpg" style="width: 100%;">
+    </div>
+    <div id="menu">
+        <p>MENU</h1>
+        <p><a id="opis" href="#">Opis</a></p>
+        <p><a id="liczba" href="#">Jaka to liczba?</a></p>
+        <p><a id="zakres" href="#">Liczby całkowite z zakresu</a></p>
+    </div>
+    <div id="tresc">
+        <p>Zawartość podstron</p>
+    </div>
+
+    <script>
+        let baner = document.getElementById('baner'),
+            menu = document.getElementById('menu'),
+            tresc = document.getElementById('tresc'),
+            opis = document.getElementById('opis'),
+            liczba = document.getElementById('liczba'),
+            zakres = document.getElementById('zakres');
+
+        baner.onclick = () => {
+            tresc.innerHTML = "<p>Zawartość podstron</p>";
+        };
+
+        opis.onclick = () => {
+            tresc.innerHTML = "<p>Kuba Szczodrzyński</p>";
+        };
+
+        liczba.onclick = () => {
+            let h = prompt('Podaj hasło');
+            if (h != 'liczba') {
+                alert('Nieprawidłowe hasło!');
+                return;
+            }
+            let l1 = parseInt(prompt('Podaj liczbę całkowitą'));
+            if (isNaN(l1)) {
+                alert('Podaj prawidłową liczbę!');
+                return;
+            }
+            tresc.innerHTML = `<p>Liczba ${l1} ${(l1 > 0 ? 'jest dodatnia' : l1 < 0 ? 'jest ujemna' : 'to zero')}</p>`;
+        };
+
+        zakres.onclick = () => {
+            let l1 = parseInt(prompt('Podaj liczbę początkową'));
+            let l2 = parseInt(prompt('Podaj liczbę końcową'));
+            if (isNaN(l1) || isNaN(l2)) {
+                alert('Podaj prawidłowe liczby!');
+                return;
+            }
+            let m = l2 > l1 ? 1 : -1;
+            let x = '';
+
+			for (var c = l1; c != l2 + m; c+=m) {
+				x += c + (c == l2 ? '<br>' : ', ');
+            }
+            tresc.innerHTML = "<p>"+x+"</p>";
+        };
+    </script>
+</body>
+</html>

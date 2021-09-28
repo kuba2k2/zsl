@@ -1,0 +1,17 @@
+-- 1.
+SELECT id, nr_rejsu, czas, kierunek, status_lotu FROM odloty ORDER BY czas DESC;
+
+-- 2.
+SELECT czas FROM odloty WHERE czas BETWEEN "10:10:00" AND "10:19:00" ORDER BY czas ASC LIMIT 1;
+
+-- 3.
+SELECT nr_rejsu, linie FROM odloty JOIN samoloty ON samoloty.id = samoloty_id WHERE kierunek = "Malta";
+
+-- 4.
+UPDATE przyloty SET status_lotu = "planowy" WHERE nr_rejsu = "LH9829";
+
+-- 5.
+CREATE USER barbara_22@`%` IDENTIFIED BY "2wsx";
+
+-- 6.
+GRANT CREATE VIEW, UPDATE, REFERENCES ON *.* TO barbara_22@`%` WITH GRANT OPTION;
