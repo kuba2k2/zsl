@@ -1,0 +1,49 @@
+.baner {
+	background: #4E885C;
+	color: orange;
+	text-align: center;
+	height: 110px;
+}
+
+.panele div {
+	float: left;
+}
+
+.panele .lewy {
+	background: #72A37D;
+	width: 30%;
+	height: 300px;
+}
+
+.panele .srodkowy {
+	background-image: url(pizza.png);
+	background-color: #A2C3A9;
+	width: 40%;
+	height: 300px;
+}
+
+.panele .prawy {
+	background: #72A37D;
+	text-align: center;
+	width: 30%;
+	height: 300px;
+}
+
+.panele .dolny {
+	clear: both;
+	float: initial;
+	background: #A2C3A9;
+	text-align: center;
+	height: 250px;
+}
+
+.stopka {
+	background: #4E885C;
+	color: orange;
+}
+
+.panele .prawy a {
+	background: orange;
+	color: green;
+	padding: 15px;
+}
