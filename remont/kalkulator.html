@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wyremontuj mieszkanie</title>
+    <link rel="stylesheet" href="remont.css">
+</head>
+
+<body>
+    <div class="baner">
+        <img src="logo.png" alt="logo">
+    </div>
+    <div class="menu">
+        <div class="menu1"><a href="index.html">O NAS</a></div>
+        <div class="menu2"><a href="kontakt.html">KONTAKT</a></div>
+        <div class="menu3"><a href="kalkulator.html">KALKULATOR</a></div>
+        <div class="menu4"><a href="http://www.jakremontowac.pl/" target="_blank">POLECANE STRONY</a></div>
+    </div>
+    <div class="glowny">
+        <h1>Malowanie pokoju: 8 zl za m<sup>2</sup></h1>
+        <p>Wymiary pokoju w metrach:
+            <input type="number" id="a">
+            <input type="number" id="b">
+        </p>
+        <button id="oblicz">OBLICZ KOSZT</button>
+        <div id="wynik"></div>
+    </div>
+    <div class="stopka">
+        <p>Autor strony: 00000000000</p>
+    </div>
+
+    <script>
+
+        let a = document.getElementById('a');
+        let b = document.getElementById('b');
+        let oblicz = document.getElementById('oblicz');
+        let wynik = document.getElementById('wynik');
+
+        oblicz.onclick = function () {
+            let xa = parseInt(a.value);
+            let xb = parseInt(b.value);
+            let h = 2.7;
+            let p = xa * h * 2 + xb * h * 2;
+            let cena = p * 8;
+            wynik.innerHTML = `<p>Powierzchnia calkowita scian: ${p}</p><p>Koszt malowania: ${cena} zl</p>`;
+        };
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+.baner {
+    background-color: rgb(255, 213, 162);
+    text-align: center;
+    padding: 20px;
+}
+
+.menu div {
+    background-color: rgb(191, 112, 17);
+    color: white;
+    text-align: center;
+    font-size: 150%;
+    width: 25%;
+    float: left;
+}
+
+.glowny {
+    height: 400px;
+}
+
+.stopka {
+    background-color: rgb(191, 112, 17);
+    color: white;
+    text-align: right;
+    font-size: 150%;
+}
+
+a {
+    color: white;
+}
+
+button {
+    background-color: brown;
+    border: 2px brown solid;
+    color: white;
+    font-weight: bold;
+    padding: 10px;
+}
