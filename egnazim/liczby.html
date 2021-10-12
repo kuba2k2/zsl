@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liczby</title>
+</head>
+<body>
+    <h2>Generowanie ciągu arytmetycznego</h2>
+    <span>Pierwszy wyraz A1: </span>
+    <input type="number" id="a1">
+    <br>
+    <span>Różnica ciągu R: </span>
+    <input type="number" id="r">
+    <br>
+    <span>Liczba wyrazów w ciągu N: </span>
+    <input type="number" id="n">
+    <br>
+    <button onclick="generuj()">Generuj Ciąg</button>
+    <p id="wynik"></p>
+
+    <script>
+        function generuj() {
+            const a1 = parseInt(document.getElementById('a1').value),
+                r = parseInt(document.getElementById('r').value),
+                n = parseInt(document.getElementById('n').value);
+
+            let a = a1 + r;
+            let wynik = `Ciąg arytmetyczny zawiera wyrazy: ${a1}`;
+            for (let i = 1; i < n; i++) {
+                wynik += `, ${a}`;
+                a += r;
+            }
+
+            document.getElementById('wynik').innerHTML = wynik;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+-- Podaj liczbę kobiet i liczbę mężczyzn uczestniczących w ankiecie. Możesz wykorzystać fakt, że w danych imiona wszystkich kobiet (i tylko kobiet) kończą się literą „a”.
+SELECT IF(RIGHT(imie, 1) = "a", "kobieta", "mezczyzna") AS plec, COUNT(*) AS ilosc FROM ankieta GROUP BY plec;
+
+-- Utwórz zestawienie zawierające jedynie nazwy poszczególnych środków lokomocji oraz liczby ankietowanych z województwa mazowieckiego korzystających z nich latem
+SELECT Srod_lok, COUNT(*) AS Ilosc FROM lokata JOIN ankieta ON Id_ank = ankieta.Id WHERE Wojewodztwo = "mazowieckie" AND Pora_roku = "lato" GROUP BY Srod_lok;
+
+-- Utwórz zestawienie zawierające jedynie nazwy województw, w których w badaniu wzięło udział więcej niż 20 osób. Wynik posortuj nierosnąco według liczby ankietowanych osób.
+SELECT Wojewodztwo FROM ankieta GROUP BY Wojewodztwo HAVING COUNT(*) > 20 ORDER BY COUNT(*) DESC;
+
+-- Utwórz użytkownika zyta_nr na localhost z hasłem zaq1. Gdzie nr to numer zmiany egzaminu (1 - zmiana, 2-zmiana)
+CREATE USER 'zyta_2'@'localhost' IDENTIFIED BY 'zaq1';
+
+-- Nadające użytkownikowi anna prawa przeglądania danych dla tabeli ankieta, modyfikacji danych w rekordzie, usuwania struktury dla tabeli ankieta.
+GRANT SELECT, UPDATE, DROP ON `dane`.`ankieta` TO 'zyta_2'@'localhost';
