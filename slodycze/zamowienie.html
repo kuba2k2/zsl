@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Fabryka cukierków</title>
+	<link rel="stylesheet" href="styl10.css">
+</head>
+
+<body>
+	<div class="gorny lewy">
+		<a href="zamowienie.html">Zamów cukierki</a>
+	</div>
+	<div class="gorny prawy">
+		<a href="index.html">
+			<img src="logotyp.png" alt="Nasze logo">
+		</a>
+	</div>
+	<div class="baner">
+		<h1>Strefa zamówień</h1>
+	</div>
+	<div class="glowny lewy">
+		<span>Numer kształtu: </span><br>
+		<input type="number" name="numer" id="numer"><br>
+		<span>skomponuj swój kolor, podaj RGB:</span><br>
+		<span>R:</span>
+		<input type="number" name="r" id="r">
+		<span>G:</span>
+		<input type="number" name="g" id="g">
+		<span>B:</span>
+		<input type="number" name="b" id="b">
+		<br>
+		<button onclick="zamowienie()">Zamówienie</button>
+		<br>
+		<p id="wynik">Twoje zamówienie</p>
+		<button id="kolor">Kolor</button>
+	</div>
+	<div class="glowny prawy">
+		<h2>Nasza oferta</h2>
+		<table>
+			<tr>
+				<td><span>Kształty</span></td>
+				<td rowspan="2"><span>Możesz zamówić<br>dowolny kolor cukierka</span></td>
+			</tr>
+			<tr>
+				<td>
+					<ol>
+						<li>cytryna</li>
+						<li>liść</li>
+						<li>banan</li>
+					</ol>
+				</td>
+			</tr>
+		</table>
+	</div>
+	<div class="stopka">
+		<span>Autor strony: <b>PESEL</b></span>
+	</div>
+	<script>
+		function zamowienie() {
+			const numer = parseInt(document.getElementById('numer').value);
+			let ksztalt = "inny";
+			switch (numer) {
+				case 1:
+					ksztalt = "cytryna";
+					break;
+				case 2:
+					ksztalt = "liść";
+					break;
+				case 3:
+					ksztalt = "banan";
+					break;
+			}
+			document.getElementById('wynik').innerHTML = `Twoje zamówienie to cukierek ${ksztalt}`;
+			const r = parseInt(document.getElementById('r').value),
+				g = parseInt(document.getElementById('g').value),
+				b = parseInt(document.getElementById('b').value);
+			document.getElementById('kolor').style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+		}
+	</script>
+</body>
+
+</html>
