@@ -20,7 +20,7 @@
         </ul>
         <h2>Moi znajomi</h2>
         <?php
-            $db = new mysqli('localhost', 'root', '', 'dane');
+            $db = new mysqli('localhost', 'zsl', '', 'zsl');
 
             $result = $db->query('SELECT imie, nazwisko, opis, zdjecie FROM osoby JOIN hobby ON Hobby_id = hobby.id WHERE hobby.id IN (1, 2, 6);');
 
