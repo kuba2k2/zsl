@@ -1,0 +1,56 @@
+#1
+DELIMITER $$
+    CREATE TRIGGER t1 
+    AFTER DELETE
+    ON `zamowione`
+    FOR EACH ROW
+    BEGIN
+		INSERT INTO `zrealizowane` VALUES (OLD.id, OLD.sztuk, OLD.towar, NOW());
+    END$$
+DELIMITER ;
+
+#2
+DELIMITER $$
+    CREATE TRIGGER t2 
+    BEFORE INSERT
+    ON `staff`
+    FOR EACH ROW
+    BEGIN
+		IF NEW.placa > 3000 OR NEW.placa < 0 THEN
+        	SIGNAL SQLSTATE '80000' SET MESSAGE_TEXT='Placa cannot be less than 0 or more than 3000';
+        END IF;
+    END$$
+DELIMITER ;
+
+#3
+DELIMITER $$
+    CREATE TRIGGER t3 
+    BEFORE INSERT
+    ON `balance`
+    FOR EACH ROW
+    BEGIN
+		SET NEW.Income = (NEW.Revenus - NEW.Costs);
+    END$$
+DELIMITER ;
+
+#4
+DELIMITER $$
+    CREATE TRIGGER `t4`
+    AFTER INSERT
+    ON `balance`
+    FOR EACH ROW
+    BEGIN
+		INSERT INTO `balance_log`(Date_, Message) VALUES (NOW(), CONCAT('new data inserted for ', NEW.CompanyName));
+    END$$
+DELIMITER ;
+
+DELIMITER $$
+    CREATE TRIGGER `t5`
+    AFTER UPDATE
+    ON `balance`
+    FOR EACH ROW
+    BEGIN
+		INSERT INTO `balance_log`(Date_, Message) VALUES (NOW(), CONCAT('data updated for ', NEW.CompanyName));
+    END$$
+DELIMITER ;
+
