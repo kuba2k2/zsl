@@ -1,0 +1,132 @@
+Posługując się pakietem xampp wykonaj następujące polecenia:
+
+I.1 Utwórz bazę danych o nazwie AIRPORT
+
+I.2 W bazie utwórz trzy tabele o schematach:
+
+DEPARTURES(id_f, code, destination, date_, depart_t, comment)
+- klucz główny to id_f jest to pole typu int auto inkrementowane,
+- pola, code, destination, date_, depart_t są polami które nie mogą przechowywać
+wartości NULL,
+- pole code (VARCHAR(7)) musi być unikatowe
+- destination to pole VARCHAR(30)
+- date_ to pole przechowujące datę lotu
+depart_t - to pole przechowujące planową godzinę odlotu
+- comment może przyjmować wartości : Puste pole, BOARDING, DELAYED, CLOSED
+
+
+PASSENGERS(id_p, name, surname, country, age)
+- klucz główny to id_p (typ int auto increment)
+- name, surname, country, to pola tekstowe różnej długości które nie mogą być NULL
+- age to liczba całkowita
+
+TICKETS(id_t, id_p, id_f, price)
+- klucz główny to id_t (typu int auto inkrementowana)
+- id_p, id_f to pola typu int
+- price to pole stałoprzecinkowe o masce ####.## gdzie # to cyfra
+
+
+wykorzystując komendy:
+CREATE TABLE DEPARTURES ( 
+    id_f int primary key AUTO_INCREMENT,
+    code VARCHAR(7) UNIQUE NOT NULL,
+    destination VARCHAR(30) NOT NULL,
+    date_ date NOT NULL,
+    depart_t TIME NOT NULL,
+    comment VARCHAR(10)
+) ENGINE = INNODB;
+
+CREATE TABLE PASSENGERS (  
+    id_p int primary key AUTO_INCREMENT,
+    name varchar(30) NOT NULL,
+    surname varchar(40) NOT NULL,
+    country varchar(40),
+    age int
+) ENGINE = INNODB;
+
+CREATE TABLE TICKETS (
+    id_t int primary key AUTO_INCREMENT,
+    id_p int,
+    id_f int,
+    price DECIMAL(6,2)
+) ENGINE = INNODB;
+
+
+
+I.3 Zaimportuj do tabel dane z plików tekstowych csv o odpowiednich nazwach
+
+
+I.4 Zmodyfikuj poleceniem ALTER TABLE tabelę TICKETS
+tak aby pola id_p, id_f były kluczami obcymi względem kluczy głównych
+tabel DEPARTURES i PASSENGERS.
+
+II.1 Utwórz w bazie danych użytkownika o nazwie 'flightOperator' logującego się z adresu localhost
+z hasłem 'ariport1'.
+Wykorzystaj tego użytkownika w daleszej części zadania do zalogowania się do bazy danych przez php.
+
+II.2 Nadaj temu użytkownikowi następujące uprawnienia do bazy AIRPORT
+SELECT, INSERT, DELETE, UPDATE na wszystkie tabele tej bazy
+USAGE oraz SHOW DATABASES.
+
+
+III. Posługując się językiem php, html, stylem CSS oraz przeglądarką internetową
+wykonaj serwis iternetowy składający się z dwóch stron:
+1) airport1.php
+2) airport2.php
+
+
+OPIS STRONY airport1.php
+III.1 na górze stronyblok BANER o szerokości całej strony i wysokości 1/5 strony, kolorze tła Indigo i kolorze czcionki białym, czcionka pogrubiona, baner zawiera napis wyśrodkowany:
+	TABELA ODLOTÓW
+    W DNIU 12 kwietnia 2017r.
+
+III.2 pod banerem znajdują się dwa bloku:
+ - BLOKLEWY (blok zajmuje 1/4 strony od lewej krawędzie, kolor tła: MediumSlateBlue, czcionka biała, pogrubiona
+   	blok zawiera formularz, składający się z dwóch pól:
+		pole typu SELECT pozwalające na wybór opcji: zapytanie1, zapytanie2, zapytanie3.... zapytanie6
+        	przycisk do wysłania formularza do serwera php - WYKONAJ
+   	Przycisk ma kolor tła srebrny, kolor czcionki kontrastujący, margines zewnętrzny 5px, ramka 1 px
+   	Formularz po naciśnięciu przycisku przesyła dane metodą POST (w polu action ma ustawioną własną stronę)
+
+ - BLOKPRAWY (blok zajmuje 3.4 strony, kolor tła Peru, kolor czcionki konstrastujący)
+   blok zawiera wyniki zapytania, które wyświetla się po wybraniu jednego z zapytań oraz wysłaniu formularza do serwera php
+   wyniki zapytania należy wyświetlić w postaci tabeli lub listy html.
+   
+Zapytania do bazy dostępne na stronie airport1.php:
+a) wyświetl wszystkie loty (code,destination,date_,depart_t,comment), które odbywają się w godzinach od 10:00 do 11:30
+   w dniu 12 kwietnia 2017r i których kod rozpoczyna się od LH.
+   
+b) wyświetl liczbę pasażerów, każdego z krajów (kraj, liczba pasażerów),
+   których wiek jest z przedziału od 18 - 45 lat.
+   
+c) wyświetl łączną informację o pasażerach oraz ich lotach w postaci
+   tabeli z polami:
+   id_p, Nazwisko, kod_lotu, destination, depart_t 
+
+d) dla każdego lotu wyświetl informacje:
+   kod_lotu(code), destination, liczba_pasażerów na ten lot
+
+e) wyświetl pasażerów z Polski, którzy mają bilety na te samoloty które
+   czekają na odlot (pole comment ustawione na BOARDING)
+ 
+f) wyświetl te loty (code,destination,date_,depart_t,comment), na które nie ma na liście ani jednego pasażera
+
+ 
+ 
+IV. Wykonaj stronę airport2.php o wyglądzie identycznym jak strona airport1.php
+    przy czym treść banera strony to:
+    AKTUALIZUJ LOT
+
+- BLOKLEWY tej strony zawierać powinien formularz pozwalający
+    na aktualizację pola comment dla danego lotu
+    w formularzu należy podać:
+	- numer lotu id_f 
+        - zawartość pola comment: (pole typy SELECT z opcjami: BOARDING, NULL,CLOSED, DELAYED)
+    nacisnąć przycisk AKTUALIZUJ - co spowoduje zaktualizowanie danych w bazie
+    oraz wyświetlenie zawartości tabeli DEPARTURES w bloku BLOKPRAWY
+
+	
+	
+
+	
+	
