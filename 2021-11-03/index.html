@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Zadanie</title>
+</head>
+<body>
+	<form action="ap.php">
+	<p>Imię</p>
+	<input type="text" name="imie" id="imie">
+	<p>Nazwisko</p>
+	<input type="text" name="nazwisko" id="nazwisko">
+	<p>Miejsce zamieszkania</p>
+	<input type="text" name="miejsce" id="miejsce">
+	<p>Klasa</p>
+	<input type="text" name="klasa" id="klasa">
+	<br>
+	<button type="button" onclick="oblicz()">Zatwierdź</button>
+	<button type="reset">Resetuj</button>
+	<p id='wynik'></p>
+	<input type="radio" name="ktory" id="login"> Login<br>
+	<input type="radio" name="ktory" id="haslo"> Hasło<br>
+	<input type="radio" name="ktory" id="email"> E-mail<br>
+</form>
+
+<script>
+function oblicz() {
+	const imie = document.getElementById('imie').value;
+	const nazwisko = document.getElementById('nazwisko').value;
+	const miejsce = document.getElementById('miejsce').value;
+	const klasa = document.getElementById('klasa').value;
+	const login = document.getElementById('login').checked;
+	const haslo = document.getElementById('haslo').checked;
+	const email = document.getElementById('email').checked;
+	const wynik = document.getElementById('wynik');
+	if (login) {
+	wynik.innerHTML = imie.substring(0, 3) + '_' + nazwisko.substring(0, 3) + '_' + klasa;
+	}
+	if (haslo) {
+	wynik.innerHTML = imie.substring(imie.length - 3, imie.length - 2).toUpperCase() + imie.substring(imie.length - 2).toLowerCase() + nazwisko.substring(nazwisko.length - 3, nazwisko.length - 2).toUpperCase() + nazwisko.substring(nazwisko.length - 2).toLowerCase();
+	}
+	if (email) {
+wynik.innerHTML = imie.toLowerCase() + '.' + nazwisko.toLowerCase() + '@' + miejsce.toLowerCase() + '.pl';
+	}
+}
+</script>
+</body>
+</html>
