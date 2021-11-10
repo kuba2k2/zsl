@@ -1,0 +1,65 @@
+body {
+	font-family: "Georgia";
+}
+
+.baner {
+	background-color: #824555;
+	color: white;
+	text-align: center;
+	padding: 20px;
+}
+
+.gorny.lewy,
+.gorny.srodkowy {
+	background-color: #a26475;
+	color: white;
+	width: 30%;
+	height: 300px;
+}
+
+.gorny.prawy {
+	background-color: #a26475;
+	color: white;
+	width: 40%;
+	height: 300px;
+	text-align: right;
+}
+
+.gorny {
+	float: left;
+}
+
+.glowny {
+	clear: both;
+	background-color: #f0eae2;
+	padding: 50px;
+}
+
+.stopka {
+	background-color: #824555;
+	color: white;
+	text-align: center;
+	padding: 20px;
+}
+
+table, td, th {
+	border: 2px solid #69293a;
+	padding: 7px;
+	border-collapse: collapse;
+}
+
+ul {
+	list-style-type: square;
+}
+
+button.red {
+	background-color: red;
+}
+
+button.green {
+	background-color: green;
+}
+
+button.blue {
+	background-color: blue;
+}
