@@ -17,7 +17,7 @@
 	<form method="POST">
 		<select name="zawod">
 			<?php
-			$db = mysqli_connect('localhost', 'root', '', 'personalia');
+			$db = mysqli_connect('localhost', 'zsl', '', 'zsl');
 			$result = mysqli_query($db, 'SELECT zawod FROM Dane GROUP BY zawod;');
 			while ($row = mysqli_fetch_assoc($result)) {
 				$checked = (isset($_POST['zawod']) && $_POST['zawod'] == $row['zawod'] ? 'selected' : '');
