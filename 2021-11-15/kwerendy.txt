@@ -1,0 +1,11 @@
+-- zapytanie 1: wstawiające do tabeli Uzytkownicy rekord z danymi: nick: Anna; zainteresowania: muzyka;zawod:informatyk; plec: K
+INSERT INTO Uzytkownicy (nick, zainteresowania, zawod, plec) VALUES ('Anna', 'muzyka', 'informatyk', 'K');
+
+-- zapytanie 2: wstawiające do tabeli Konta rekord z danymi: login: AKowalska; hasło: qazwsx
+INSERT INTO Konta (login, haslo) VALUES ('AKowalska', 'qazwsx');
+
+-- zapytanie 3: wybierające jedynie login i haslo ze wszystkich rekordów tabeli Konta
+SELECT login, haslo FROM Konta;
+
+-- zapytanie 4: wybierające jedynie pole zainteresowania z tabeli Uzytkownicy, dla którego pole id jest równe 1
+SELECT zainteresowania FROM Uzytkownicy WHERE id = 1;
