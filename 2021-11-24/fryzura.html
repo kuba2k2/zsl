@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Usługi kosmetyczne</title>
+	<link rel="stylesheet" href="styl.css">
+</head>
+
+<body>
+	<div class="blok lewy1">
+		<h2>W ofercie</h2>
+		<ul>
+			<li>
+				<a href="twarz.html">Zabiegi na twarz</a>
+				<ol>
+					<li>Piling</li>
+					<li>Maska</li>
+					<li>Regulacja brwi</li>
+				</ol>
+			</li>
+			<li>Masaż</li>
+			<li>Diety oczyszczające</li>
+		</ul>
+		<a href="index.html">Do strony głównej</a>
+	</div>
+	<div class="blok prawy1">
+		<h1>Salon kosmetyczny</h1>
+	</div>
+	<div class="blok prawy2">
+		<h3>Dziś promocja na strzyżenie włosów</h3>
+		<input type="radio" name="typ" id="krotkie"> Krótkie<br>
+		<input type="radio" name="typ" id="srednie"> Średnie<br>
+		<input type="radio" name="typ" id="poldlugie"> Półdługie<br>
+		<input type="radio" name="typ" id="dlugie"> Długie<br>
+		<button onclick="oblicz()">Odkryj promocję</button>
+		<p id="wynik"></p>
+	</div>
+	<div class="blok lewy2">
+		<img src="obraz1.jpg" alt="Kosmetyczka">
+	</div>
+	<div class="stopka">
+		<p>Autor: 00000000000</p>
+	</div>
+
+	<script>
+		function oblicz() {
+			let suma = 0;
+			if (document.getElementById("krotkie").checked) {
+				suma = 25;
+			}
+			else if (document.getElementById("srednie").checked) {
+				suma = 30;
+			}
+			else if (document.getElementById("poldlugie").checked) {
+				suma = 40;
+			}
+			else if (document.getElementById("dlugie").checked) {
+				suma = 50;
+			}
+			else {
+				return;
+			}
+			document.getElementById("wynik").innerHTML = `Cena strzyżenia: ${suma}`;
+		}
+	</script>
+</body>
+
+</html>
