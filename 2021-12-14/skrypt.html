@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kolor</title>
+</head>
+<body>
+    <p>skomponuj swój kolor, podaj RGB</p>
+    <span>R: </span>
+    <input type="number" id="r">
+    <span>G: </span>
+    <input type="number" id="g">
+    <span>B: </span>
+    <input type="number" id="b">
+    <br>
+    <button onclick="kolor()">Kolor</button>
+
+    <p id="wynik">Strona w budowie</p>
+
+    <script>
+        function kolor() {
+            const r = document.getElementById('r').value;
+            const g = document.getElementById('g').value;
+            const b = document.getElementById('b').value;
+            document.getElementById('wynik').style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+        }
+    </script>
+</body>
+</html>

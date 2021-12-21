@@ -1,0 +1,70 @@
+body {
+    font-family: Verdana;
+}
+
+.baner.lewy {
+    background-color: #29434E;
+    text-align: center;
+    width: 70%;
+    height: 70px;
+}
+
+.baner.prawy {
+    background-color: #29434E;
+    width: 30%;
+    height: 70px;
+}
+
+.baner {
+    float: left;
+}
+
+.lista {
+    background-color: #B0BEC5;
+    height: 320px;
+    overflow: scroll;
+    clear: both;
+}
+
+.stopka {
+    background-color: #29434E;
+    color: white;
+}
+
+.film {
+    padding: 5px;
+    width: 226px;
+    height: 280px;
+    float: left;
+}
+
+h3 {
+    background-color: #546E7A;
+    color: white;
+    margin: 0px;
+}
+
+h2 {
+    text-align: center;
+    margin: 0px;
+}
+
+form {
+    margin: 5px;
+}
+
+form:hover {
+    background-color: deepskyblue;
+}
+
+.baner.lewy a {
+    color: white;
+    text-decoration: none;
+}
+
+.baner.prawy table, .baner.prawy td, .baner.prawy th {
+    color: white;
+    border: 2px white solid;
+    padding: 5px;
+    border-collapse: collapse;
+}

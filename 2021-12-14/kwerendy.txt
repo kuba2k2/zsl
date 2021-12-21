@@ -1,0 +1,20 @@
+-- Zapytanie 1: wybierające jedynie pola id, nazwa, opis, zdjecie z tabeli produkty, dla produktów, których id jest jedną z wartości: 18, 22, 23, 25
+SELECT id, nazwa, opis, zdjecie FROM produkty WHERE id IN (18, 22, 23, 25);
+
+-- Zapytanie 2: zliczające produkty, ze względu na nazwę z tabeli rodzaje 
+SELECT rodzaje.nazwa, COUNT(*) AS ilosc FROM produkty JOIN rodzaje ON rodzaje.id = produkty.Rodzaje_id GROUP BY rodzaje.id;
+
+-- Zapytanie 3: wybierające jedynie nazwę z tabeli produkty i odpowiadającą mu nazwę z tabeli rodzaje dla wierszy, których w polu opis występuje ciąg znaków: „Leia”
+SELECT produkty.nazwa AS produkty_nazwa, rodzaje.nazwa AS rodzaje_nazwa FROM produkty JOIN rodzaje ON rodzaje.id = produkty.Rodzaje_id WHERE opis LIKE "%Leia%";
+
+-- Zapytanie 4: usuwające wiersz z tabeli produkty o id równym 15
+DELETE FROM produkty WHERE id = 15;
+
+-- Zapytanie 5: tworzące użytkownika Omer na dowolnie dostępnym hoście z hasłem qwertu
+CREATE USER 'Omer'@'%' IDENTIFIED BY 'qwertu';
+
+-- Zapytanie 6: nadające prawa dla użytkownika Omer do usuwania danych w tabeli produkty, modyfikacji obiektu w tabeli produkty oraz wprowadzania rekordów w tabeli produkty.
+GRANT DELETE, ALTER, INSERT ON `dane3`.`produkty` TO 'Omer'@'%';
+
+-- Zapytanie 7: zapytanie wybierające jedynie pola id, nazwa, opis, zdjecie z tabeli produkty, dla produktów, których pole Rodzaje_id przyjmuje wartość 12.
+SELECT id, nazwa, opis, zdjecie FROM produkty WHERE Rodzaje_id = 12;
