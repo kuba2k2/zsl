@@ -1,0 +1,91 @@
+89.1.
+- Bialaszewski Wiktor
+- Cicherski Szymon
+- Florek Sandra
+- Kaminski Mikolaj
+- Krol Malgorzata
+
+89.2.
+Liczba punktów najczęściej: 55,6
+Uczniowie:
+- Majtas Lucja
+- Broszkow Zofia
+- Sokolnicka Inga
+- Sochacka Inka
+- Murczynska Laura
+- Odya Kacper
+
+89.3.
+- Grzelecki Oliwier
+- Wojcicki Aleks
+- Rembiewski Jakub
+- Przytula Jakub
+
+89.4.
+Liczba ocen			Język polski	Matematyka	Biologia	Geografia
+dopuszczających		95				110			101			112
+dostatecznych		96				106			105			97
+dobrych				101				100			94			96
+bardzo dobrych		108				97			110			97
+celujących			114				101			104			112
+
+89.5.
+300 uczniów
+
+90.1.
+Miejscowość: Katowice
+Liczba studentów: 57 studentów
+Uczelnia: Politechnika Informatyczno-Elektroniczna
+
+90.2.
+Wolne miejsca: 143
+Nowy próg: dochód max. 2256 denarów
+
+90.3.
+Uczelnia									Średni dochód na osobę
+Uniwersytet Krolewski						1832,22
+Akademia Sztuk Pieknych						1985,98
+Politechnika Krolewska						1947,34
+Politechnika Informatyczno-Elektroniczna	1814,20
+Uniwersytet Sportu i Turystyki				1923,81
+Wyzsza Szkoła Techniczna					1871,07
+Uniwersytet Muzyczny						2124,00
+Uniwersytet Pedagogiczny					1858,47
+Uniwersytet Ekonomiczny						1921,06
+Uniwersytet Rolniczy						1898,49
+
+90.4.
+-- rok / uczelnia --						I		II		III		IV		V
+Akademia Sztuk Pieknych						32		10		6		2		5
+Politechnika Informatyczno-Elektroniczna	299		108		48		54		54
+Politechnika Krolewska						168		59		28		31		25
+Uniwersytet Ekonomiczny						32		9		3		2		7
+Uniwersytet Krolewski						233		77		53		32		61
+Uniwersytet Muzyczny						5		2		0		1		0
+Uniwersytet Pedagogiczny					31		11		4		2		5
+Uniwersytet Rolniczy						27		14		7		5		6
+Uniwersytet Sportu i Turystyki				24		5		6		3		5
+Wyzsza Szkoła Techniczna					8		1		1		0		5
+
+90.5.
+Imię		Nazwisko			Miejscowość			Dochód na osobę
+Iwona		Andrzejewska		Ruda Slaska			2241
+Jacek		Andrzejewski		Ruda Slaska			2241
+Krzysztof	Barski				Ogrodzieniec		1047
+Anna		Barska				Ogrodzieniec		1047
+Barbara		Barska				Ogrodzieniec		1047
+Joanna		Bilska				Kedzierzyn-Kozle	2807
+Michal		Bilski				Kedzierzyn-Kozle	2807
+Waclawa		Borkowska			Szczyrk				1683
+Sylwester	Borkowski			Szczyrk				1683
+Piotr		Jablonski			Sanok				1185
+Zygmunt		Jablonski			Sanok				1185
+Tomasz		Kaczmarek			Wodzislaw Slaski	1140
+Weronika	Kaczmarek			Wodzislaw Slaski	1140
+Przemyslaw	Kaczmarek			Wodzislaw Slaski	1140
+Klaudia		Kotowicz			Katowice			1950
+Tadeusz		Kotowicz			Katowice			1950
+Felicja		Ostrowska			Tarnowskie Gory		2466
+Boguslawa	Ostrowska			Tarnowskie Gory		2466
+Robert		Tomaszewski			Wisla				1511
+Bartosz		Tomaszewski			Wisla				1511
